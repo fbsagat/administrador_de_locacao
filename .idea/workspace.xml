@@ -4,37 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="821aae0c-af66-4bd0-9bcb-4113d2209df1" name="Changes" comment="Melhorias e correções de bugs.&#10;&#10;Implementação do celery, +celery beats, +celery flower.">
-      <change afterPath="$PROJECT_DIR$/Alugue_seu_imovel/celery.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/home/tasks.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/administrador_de_locacao.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/administrador_de_locacao.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/Fábio.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dictionaries/Fábio.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations/Criar_SuperUser.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/runConfigurations/Criar_SuperUser.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations/Criar_dados_iniciais.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/runConfigurations/Criar_dados_iniciais.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations/Importar_dados_do_predio.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/runConfigurations/Importar_dados_do_predio.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations/Makemigrations.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/runConfigurations/Makemigrations.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations/Migrate.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/runConfigurations/Migrate.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations/Runserver.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/runConfigurations/Runserver.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+    <list default="true" id="821aae0c-af66-4bd0-9bcb-4113d2209df1" name="Changes" comment="Render test.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Alugue_seu_imovel/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/Alugue_seu_imovel/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Alugue_seu_imovel/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/Alugue_seu_imovel/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Roadmap" beforeDir="false" afterPath="$PROJECT_DIR$/Roadmap" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/financeiro/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/financeiro/migrations/0001_initial.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/financeiro/migrations/0002_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/financeiro/migrations/0002_initial.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/funcoes_proprias.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/funcoes_proprias.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/migrations/0001_initial.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/home/migrations/0002_alter_contratomodelo_comunidade_and_more.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/signals.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/signals.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/navbar.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/navbar.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/notific_cards.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/notific_cards.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/tasks.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/tasks.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,7 +38,7 @@
     </option>
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="Celery-Tests" />
+        <entry key="$PROJECT_DIR$" value="main" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -125,7 +98,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "render-test",
     "last_opened_file_path": "C:/Users/Fabio/PycharmProjects/Alugue_seu_imovel/home",
     "run.code.analysis.last.selected.profile": "pProject Default",
     "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
@@ -160,7 +133,7 @@
       <recent name="C:\Users\Fabio\PycharmProjects\Alugue_seu_imovel\home\templates" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.Celery worker">
+  <component name="RunManager" selected="Python.Runserver">
     <list>
       <item itemvalue="Python.Celery worker" />
       <item itemvalue="Python.Celery beat" />
@@ -535,7 +508,7 @@
       <option name="project" value="LOCAL" />
       <updated>1687463941621</updated>
     </task>
-    <option name="localTasksCounter" value="213" />
+    <option name="localTasksCounter" value="215" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -568,8 +541,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Correções de bugs e melhorias.&#10;&#10;Mostra o valor em satoshi: api.bitpreco.&#10;Implementado o sistema de pagamentos Stripe." />
-    <MESSAGE value="Correções de bugs e melhorias.&#10;&#10;Adicionadas mensagens de sucesso e erro na pagina de slots." />
     <MESSAGE value="Correções de bugs e melhorias.&#10;&#10;PacoteConfigAdmin: corrigidas algumas validações." />
     <MESSAGE value="Correções de bugs e melhorias.&#10;&#10;ContratoModelo: remover o arquivo visualizar e o campo visualizar da model quando ela passa a ser apenas modelo de configs já que este arquivo e campo ficam desnecessários." />
     <MESSAGE value="Correções de bugs e melhorias.&#10;&#10;Melhorias nos botões do painel.&#10;Criada a view histórico de compras." />
@@ -593,6 +564,8 @@
     <MESSAGE value="Melhorias e correções de bugs.&#10;&#10;Iniciado o sistema de confirmação de emai e reset de senha via email, links temporários para mudanca de senha(ok) e exclusão de conta(ok)" />
     <MESSAGE value="Melhorias e correções de bugs." />
     <MESSAGE value="Melhorias e correções de bugs.&#10;&#10;Implementação do celery, +celery beats, +celery flower." />
-    <option name="LAST_COMMIT_MESSAGE" value="Melhorias e correções de bugs.&#10;&#10;Implementação do celery, +celery beats, +celery flower." />
+    <MESSAGE value="Melhorias e correções de bugs.&#10;&#10;Implementação do celery, +celery beats, +celery flower.&#10;Versão mais estável. OK." />
+    <MESSAGE value="Render test." />
+    <option name="LAST_COMMIT_MESSAGE" value="Render test." />
   </component>
 </project>

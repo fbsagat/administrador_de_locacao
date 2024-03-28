@@ -61,7 +61,7 @@ def painel_loja(request):
 #         print("Webhook enviado com sucesso!")
 #         print(response.text)
 #
-#     return redirect(reverse('home:Painel Loja'))
+#     return redirect(reverse('core:Painel Loja'))
 #
 #
 # @csrf_exempt
@@ -108,7 +108,7 @@ def create_checkout_session(request, pacote_index, forma):
         elif forma == 'btc':
             # Função para pagamentos em btc (meu próprio node lightning + btcpay server? espero!)
             pass
-    return redirect(reverse('home:Painel Loja'))
+    return redirect(reverse('core:Painel Loja'))
 
 
 @csrf_exempt
@@ -153,13 +153,13 @@ def compra_sucesso(request, pk):
     invoice = get_object_or_404(PagamentoInvoice, pk=pk)
     if invoice.do_usuario == request.user and invoice.pago is True and invoice.verificar_se_e_recente(30):
         messages.success(request, f"Pagamento realizado com sucesso, seus tickets já foram creditados em sua conta")
-    return redirect(reverse('home:Painel Loja'))
+    return redirect(reverse('core:Painel Loja'))
 
 
 @login_required
 def compra_cancelada(request):
     messages.error(request, f"Pagamento cancelado")
-    return redirect(reverse('home:Painel Loja'))
+    return redirect(reverse('core:Painel Loja'))
 
 
 def historico_de_compras(request):

@@ -17,7 +17,7 @@ USAR_DB = 1
 # tempo para apagar o form inválido da navbar das sessions (segundos)
 TEMPO_SESSION_FORM = 45
 
-# Configurações do gerador de dados fictícios (home.views / home.fakes_test):
+# Configurações do gerador de dados fictícios (core.views / core.fakes_test):
 # Total a ser criado para cada item / dados iniciais do formulário \/
 FICT_QTD = {'qtd_usuario': 5, 'qtd_locatario': 5, 'qtd_imovel_g': 1, 'qtd_imovel': 5, 'qtd_contrato': 4,
             'qtd_pagamento': 10, 'qtd_gasto': 1, 'qtd_nota': 1, 'qtd_sugestao': 1, 'qtd_contr_modelo': 2}
@@ -97,7 +97,7 @@ INSTALLED_APPS = [
     'django_celery_beat',
 
     # Site Apps
-    'home',
+    'core',
     'financeiro',
 ]
 
@@ -131,10 +131,10 @@ TEMPLATES = [
                 'social_django.context_processors.backends',
                 'social_django.context_processors.login_redirect',
 
-                'home.new_context.titulo_pagina',
-                'home.new_context.navbar_forms',
-                'home.new_context.navbar_notificacoes',
-                'home.new_context.ultima_pagina_valida',
+                'core.new_context.titulo_pagina',
+                'core.new_context.navbar_forms',
+                'core.new_context.navbar_notificacoes',
+                'core.new_context.ultima_pagina_valida',
             ],
         },
     },
@@ -191,7 +191,7 @@ CELERY_BEAT_SCHERDULLER = 'django_celery_beat.schedulers:DatabaseScheduler'
 
 
 # Modelo de usuário
-AUTH_USER_MODEL = "home.Usuario"
+AUTH_USER_MODEL = "core.Usuario"
 
 # Password validation
 AUTH_PASSWORD_VALIDATORS = [

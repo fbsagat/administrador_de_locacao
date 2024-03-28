@@ -37,8 +37,8 @@
             <form method="post" class="d-grid mx-auto">{% csrf_token %}{{ form.as_p }}
                 <button class="btn btn-primary" type="submit">{% trans "Generate Tokens" %}</button>
             </form>
-            <form action="{% url 'home:Painel Configs' %}" class="py-1 px-1">
-                <a href="{% url 'home:Painel Configs'%}"
+            <form action="{% url 'core:Painel Configs' %}" class="py-1 px-1">
+                <a href="{% url 'core:Painel Configs'%}"
                    class="float-right btn btn-link">Voltar para configurações</a>
             </form>
         </div>

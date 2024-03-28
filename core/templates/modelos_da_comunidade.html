@@ -1,0 +1,226 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block titulo %}
+Modelos da Comunidade / {{ SITE_NAME }}
+{% endblock %}
+
+{% block content %}
+
+<div class="container my-1 text-center text-justify justify-center">
+
+    <div class="container-auto my-1 border bg-dark bg-opacity-50 rounded flex justify-content-evenly items-center">
+        <form class="py-2 px-3" action="{% url 'core:Criar Modelo' %}">
+            <button class="btn btn-sm btn-outline-primary py-2 px-3 text-white rounded-md form-control-sm">
+                Criar novo modelo
+            </button>
+        </form>
+
+        <form class="py-2 px-3" action="{% url 'core:Modelos' %}">
+            <button class="btn btn-sm btn-outline-primary py-2 px-3 text-white rounded-md form-control-sm">
+                Meus modelos
+            </button>
+        </form>
+
+        <form class="py-2 px-3" action="{% url 'core:Modelos Comunidade' %}">
+            <button class="btn btn-sm active btn-outline-primary py-2 px-3 text-white rounded-md form-control-sm">
+                Modelos da comunidade
+            </button>
+        </form>
+
+        <form class="py-2 px-3" action="{% url 'core:Contrato PDF' %}">
+            <button class="btn btn-sm btn-outline-primary py-2 px-3 text-white rounded-md form-control-sm">
+                Sair do editor
+            </button>
+        </form>
+    </div>
+
+    {% if modelos %}
+
+    <div class="container-xxl">
+        <div class="row row-cols-5 row-cols-md-3 g-3">
+            {% for modelo in modelos %}
+            <div class="col">
+                <div class="card bg-secondary text-white bg-opacity-50 border-white h-100">
+
+                    <div class="card-header text-decoration-underline">
+                        <h1>{{ page_obj.start_index|add:forloop.counter0 }}. {{ modelo.titulo }}</h1>
+                    </div>
+
+                    <div class="card-body row g-3 d-flex justify-content-center">
+
+                        <div class="d-flex flex-column mb-3">
+                            <div class="p-2">
+                                <h1>Descrição: {{ modelo.descricao }}</h1>
+                            </div>
+                            <br>
+                            {% if user.is_superuser or debug_true %}
+                            <div class="p-2">
+                                <h1 class="text-muted">Criado por {{ modelo.autor }}</h1>
+                            </div>
+                            <br>
+                            {% endif %}
+                            <div class="p-2">
+                                <h1>Criado em: {{ modelo.data_criacao }}</h1>
+                            </div>
+                        </div>
+
+                        <div class="d-flex justify-content-around">
+                            <!-- Botão modal variáveis -->
+                            <a data-bs-toggle="modal" data-bs-target="#modal_variaveis{{ modelo.pk }}"
+                               class="dropdown-item text-center">
+                                <button type="button" class="btn btn-sm btn-secondary">
+                                    Variáveis neste modelo
+                                </button>
+                            </a>
+                            <!-- Botão modal condições -->
+                            <a data-bs-toggle="modal" data-bs-target="#modal_condicoes{{ modelo.pk }}"
+                               class="dropdown-item text-center">
+                                <button type="button" class="btn btn-sm btn-secondary"
+                                        title="Adicionar tickets em todos os slots">
+                                    Condições neste modelo
+                                </button>
+                            </a>
+                        </div>
+
+                    </div>
+
+                    <div class="card-footer">
+                        <div class="col d-flex justify-content-around">
+                            {% if request.user == modelo.autor %}
+                            <form action="{% url 'core:Editar Modelo' modelo.pk %}">
+                                <button type="submit" title="Editar">
+                                    ✒️
+                                </button>
+                            </form>
+                            <a href="{% url 'core:Visualizar Modelo' modelo.pk %}" title="Visualizar"
+                               target="_blank">📑</a>
+                            <form action="{% url 'core:Excluir Modelo' modelo.pk 1 %}">
+                                <button type="submit" title="Excluir">
+                                    ❌
+                                </button>
+                            </form>
+                            {% else %}
+                            <form action="{% url 'core:Copiar Modelo' modelo.pk %}">
+                                <button type="submit" title="Copiar">
+                                    📥
+                                </button>
+                            </form>
+                            <a href="{% url 'core:Visualizar Modelo' modelo.pk %}" title="Visualizar"
+                               target="_blank">📑</a>
+                            {% endif %}
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            {% endfor %}
+
+        </div>
+    </div>
+    <br>
+</div>
+
+<!--modal de Variáveis -->
+{% for modelo in modelos %}
+<div class="modal modal-lg fade" id="modal_variaveis{{ modelo.pk }}" tabindex="-1"
+     aria-labelledby="MODAL_VARIAVEIS{{ modelo.pk }}"
+     aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content bg-dark border border-black text-white">
+            <div class="col mx-1 my-1">
+                {% if modelo.display_variaveis is not False %}
+                <div class="row mb-3 text-center">
+                    <h1>Variáveis em: {{modelo.titulo}}:</h1>
+                </div>
+                <div class="row row-cols-md-2 g-1">
+                    {% for variavel in modelo.display_variaveis %}
+                    <div class="col">
+                        <div class="card bg-black border-secondary" style="cursor:default;"
+                             title="{{ variavel.1 }}">
+                            <div class="card-head text-center align-items-center d-flex justify-content-between">
+                                <h1 class="flex-grow-1" value="">{{ variavel.0 }}</h1>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+                {% else %}
+                <div class="row mb-3 text-center">
+                    <h1>Nenhuma variável neste modelo de contrato</h1>
+                </div>
+                {% endif %}
+                <div class="row mt-3">
+                    <div class="col text-center">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--modal fim -->
+
+<!--modal de Condições -->
+<div class="modal modal-lg fade" id="modal_condicoes{{ modelo.pk }}" tabindex="-1"
+     aria-labelledby="MODAL_CONDICOES{{ modelo.pk }}"
+     aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content bg-dark border border-black text-white">
+            <div class="col mx-1 my-1">
+                {% if modelo.display_condicoes is not False %}
+                <div class="row mb-3 text-center">
+                    <h1>Condições em: {{modelo.titulo}}:</h1>
+                </div>
+                <div class="row row-cols-md-2 g-1">
+                    {% for condicao in modelo.display_condicoes %}
+                    <div class="col">
+                        <div class="card bg-black border-secondary" style="cursor:default;"
+                             title="{{ condicao.1 }}">
+                            <div class="card-head text-center align-items-center d-flex justify-content-between">
+                                <h1 class="flex-grow-1" value="">{{ condicao.0 }}</h1>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+                {% else %}
+                <div class="row mb-3 text-center">
+                    <h1>Nenhuma condição neste modelo de contrato</h1>
+                </div>
+                {% endif %}
+                <div class="row mt-3">
+                    <div class="col text-center">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--modal fim -->
+{% endfor %}
+
+{% else %}
+<div class="container-fluid pt-1 text-center text-justify">
+    <br>
+    <div class="container-xxl">
+        <div class="row row-cols-5 row-cols-md-3 g-3 d-flex justify-content-center">
+            <div class="col ">
+                <div class="card bg-secondary text-white bg-opacity-50 border-white h-100">
+                    <div class="card-body flex items-center justify-content-center">
+                        <h1 class="fs-3">Ainda não existe nenhum modelo de contrato na comunidade :(</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endif %}
+
+{% endblock %}

@@ -10,7 +10,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('oauth/', include('social_django.urls', namespace='social')),
 
-    path('', include('home.urls', namespace='home')),
+    path('', include('core.urls', namespace='core')),
     path('', include('financeiro.urls', namespace='financeiro')),
 
     path('password_reset/',

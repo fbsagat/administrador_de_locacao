@@ -68,7 +68,7 @@
     <div class="mt-2 mb-2 items-center text-center">
 
         <div class="mx-auto">
-            <form action="{% url 'home:Sugestões' %}">
+            <form action="{% url 'core:Sugestões' %}">
                 <button type="submit" class="link-primary">
                     Sugestões
                 </button>
@@ -82,7 +82,7 @@
         <div class="mx-auto">
             <a href="" class="link-primary" data-bs-toggle="modal" data-bs-target="#modal2"><h1>Gerador de
                 fictícios</h1></a>
-            <a href="{% url 'home:Botão Teste' %}" class="link-primary"><h1>Botão Teste</h1></a>
+            <a href="{% url 'core:Botão Teste' %}" class="link-primary"><h1>Botão Teste</h1></a>
         </div>
         {% endif %}
         <div class="mx-auto">
@@ -113,11 +113,11 @@
                             elogios,
                             manere nos xingamentos, e as dúvidas serão respondidas o mais breve possível. Em caso de
                             sugestão, por favor, entre no mini-fórum clicando
-                            <a href="{% url 'home:Sugestões' %}" class="link-primary">AQUI</a>.
+                            <a href="{% url 'core:Sugestões' %}" class="link-primary">AQUI</a>.
                             Envie uma imagem se quiser, principalmente no report de bugs, obrigado!
                         </p>
                         <br>
-                        <form action="{% url 'home:Mensagem pro Desenvolvedor' %}" method="POST"
+                        <form action="{% url 'core:Mensagem pro Desenvolvedor' %}" method="POST"
                               enctype="multipart/form-data">
                             {% csrf_token %}
 
@@ -145,7 +145,7 @@
             <div class="modal-header">
                 <h2 class="modal-title fs-5">Gerador de fictícios</h2>
             </div>
-            <form method="POST" action="{% url 'home:Gerador de Fictícios' %}">
+            <form method="POST" action="{% url 'core:Gerador de Fictícios' %}">
                 {% csrf_token %}
                 <div class="modal-body">
                     {{ botao_admin.criar_usuarios|as_crispy_field }}

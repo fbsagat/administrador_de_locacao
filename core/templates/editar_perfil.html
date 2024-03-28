@@ -1,0 +1,124 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block titulo %}
+Editar Perfil / {{ SITE_NAME }}
+{% endblock %}
+
+{% block head %}
+{% endblock %}
+
+{% block content %}
+
+<div class="flex justify-center text-center items-center">
+
+    <div class="p-3 bg-black bg-opacity-50 mb-2 border border-secondary rounded bg-gradient text-dark">
+        <div class="z-10 h-full md:py-0 text-gray-100 text-center flex items-center flex-col">
+            <form class="mask-x_form" method="post">
+                {% csrf_token %}
+                {% if form.username %}
+                <fieldset class="form-group">
+                    <legend class="border-bottom mb-4">Editar perfil de {{ user.username }}</legend>
+                    <div class="row">
+                        <div class="col">
+                            {{ form.username|as_crispy_field }}
+                        </div>
+                        <div class="col">
+                            {{ form.first_name|as_crispy_field }}
+                        </div>
+                        <div class="col">
+                            {{ form.cpf|as_crispy_field }}
+                        </div>
+                    </div>
+                    <div class="row justify-center text-center items-center">
+                        <div class="col">
+                            {{ form.last_name|as_crispy_field }}
+                        </div>
+                        <div class="col">
+                            {{ form.email|as_crispy_field }}
+                        </div>
+                    </div>
+                    <div class="row justify-center text-center items-center">
+                        <div class="col">
+                            {{ form.RG|as_crispy_field }}
+                        </div>
+                        <div class="col">
+                            {{ form.nacionalidade|as_crispy_field }}
+                        </div>
+                        <div class="col">
+                            {{ form.estadocivil|as_crispy_field }}
+                        </div>
+                        <div class="col">
+                            {{ form.telefone|as_crispy_field }}
+                        </div>
+                    </div>
+                    <div class="row justify-center text-center items-center">
+                        <div class="col">
+                            {{ form.ocupacao|as_crispy_field }}
+                        </div>
+                        <div class="col">
+                            {{ form.endereco_completo|as_crispy_field }}
+                        </div>
+                    </div>
+                    <div class="row justify-center text-center items-center">
+                        <div class="row">
+                            {{ form.dados_pagamento1|as_crispy_field }}
+                        </div>
+                        <div class="row">
+                            {{ form.dados_pagamento2|as_crispy_field }}
+                        </div>
+                    </div>
+                </fieldset>
+
+                {% else %}
+                {{ form|crispy }}
+                {% endif %}
+
+                <button class="bg-blue-600 py-1 px-3 text-white md:text-lg rounded-md" type="submit">Confirmar</button>
+                <button type="button" class="bg-blue-600 py-1 px-3 text-white md:text-lg rounded-md"
+                        onClick="history.go(-1)">Voltar
+                </button>
+            </form>
+
+            {% if form.first_name %}
+            <br><br>
+            <small><a href="{% url 'core:Mudar Senha' %}">Quer mudar sua senha?</a></small>
+            <br>
+            <small>
+                <a data-bs-toggle="modal" data-bs-target="#apagar_conta" style="cursor:pointer;">
+                    Quer excluir sua conta?
+                    <ion-icon name="trash-outline"></ion-icon>
+                </a>
+
+            </small>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+<!--Modal apagar conta -->
+<div class="modal fade" id="apagar_conta" tabindex="-1" aria-labelledby="APAGAR_CONTA" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content bg-dark border border-black text-white">
+            <div class="modal-header text-center flex items-center flex-col">
+                <h1 class="fs-3">Apagar conta</h1>
+            </div>
+            <div class="modal-body text-center items-center">
+                <h1 class="fs-5">Deseja mesmo apagar sua conta?</h1>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar
+                </button>
+                <form action="{% url 'core:Apagar Conta Email' %}">
+                    <button type="submit" class="btn btn-primary">
+                        Confirmar
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!--Modal apagar conta fim -->
+{% endblock %}

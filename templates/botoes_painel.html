@@ -1,20 +1,20 @@
-<form action="{% url 'home:Painel Configs' %}" class="py-1 px-1">
+<form action="{% url 'core:Painel Configs' %}" class="py-1 px-1">
     <button type="submit"
-            class="{% if request.resolver_match.view_name == 'home:Painel Configs' %}active{% endif %}
+            class="{% if request.resolver_match.view_name == 'core:Painel Configs' %}active{% endif %}
              btn btn-sm btn-outline-primary text-white rounded-md form-control-sm">
         Configurações
     </button>
 </form>
-<form action="{% url 'home:Painel Slots' %}" class="py-1 px-1">
+<form action="{% url 'core:Painel Slots' %}" class="py-1 px-1">
     <button type="submit"
-            class="{% if request.resolver_match.view_name == 'home:Painel Slots' %}active{% endif %}
+            class="{% if request.resolver_match.view_name == 'core:Painel Slots' %}active{% endif %}
              btn btn-sm btn-outline-primary text-white rounded-md form-control-sm">
         Slots
     </button>
 </form>
-<form action="{% url 'home:Painel Loja' %}" class="py-1 px-1">
+<form action="{% url 'core:Painel Loja' %}" class="py-1 px-1">
     <button type="submit"
-            class="{% if request.resolver_match.view_name == 'home:Painel Loja' %}active{% endif %}
+            class="{% if request.resolver_match.view_name == 'core:Painel Loja' %}active{% endif %}
              btn btn-sm btn-outline-primary text-white rounded-md form-control-sm">
         Loja
     </button>

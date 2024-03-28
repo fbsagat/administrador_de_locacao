@@ -1,14 +1,14 @@
 {% if notific.autor_tipo == 1 %}
 <div class="d-flex justify-content-start">
     {% if notific.content_object.recibo_entregue %}
-    <form action="{% url 'home:Recibo Entregue' notific.pk %}">
+    <form action="{% url 'core:Recibo Entregue' notific.pk %}">
         <button type="submit"
                 class="btn btn-outline-primary bg-gray-800 btn-sm small ms-1" title="Desmarcar como entregue">
             Não entregue
         </button>
     </form>
     {% else %}
-    <form action="{% url 'home:Recibo Entregue' notific.pk %}">
+    <form action="{% url 'core:Recibo Entregue' notific.pk %}">
         <button type="submit" class="btn btn-outline-primary btn-sm small ms-1" title="Confirmar entrega">
             Entregue
         </button>
@@ -16,14 +16,14 @@
     {% endif %}
 
     {% if notific.lida %}
-    <form action="{% url 'home:Notificação Lida' notific.pk %}">
+    <form action="{% url 'core:Notificação Lida' notific.pk %}">
         <button type="submit" class="btn btn-secondary btn-sm small ms-1"
                 title="Marcar notificação como não lida">
             Não lida
         </button>
     </form>
     {% else %}
-    <form action="{% url 'home:Notificação Lida' notific.pk %}">
+    <form action="{% url 'core:Notificação Lida' notific.pk %}">
         <button type="submit" class="btn btn-secondary btn-sm small ms-1"
                 title="Marcar notificação como lida">
             Lida
@@ -35,28 +35,28 @@
 {% elif notific.autor_tipo == 2 %}
 <div class="d-flex justify-content-start">
     {% if notific.content_object.feito %}
-    <form action="{% url 'home:Afazer Concluida' notific.pk %}">
+    <form action="{% url 'core:Afazer Concluida' notific.pk %}">
         <button type="submit"
                 class="btn btn-outline-primary bg-gray-800 btn-sm small ms-1" title="Marcar notific como não concluída">
             À fazer
         </button>
     </form>
     {% else %}
-    <form action="{% url 'home:Afazer Concluida' notific.pk %}">
+    <form action="{% url 'core:Afazer Concluida' notific.pk %}">
         <button type="submit" class="btn btn-outline-primary btn-sm small ms-1" title="Marcar tarefa como concluída">
             Feito
         </button>
     </form>
     {% endif %}
     {% if notific.lida %}
-    <form action="{% url 'home:Notificação Lida' notific.pk %}">
+    <form action="{% url 'core:Notificação Lida' notific.pk %}">
         <button type="submit" class="btn btn-secondary btn-sm small ms-1"
                 title="Marcar notificação como não lida">
             Não lida
         </button>
     </form>
     {% else %}
-    <form action="{% url 'home:Notificação Lida' notific.pk %}">
+    <form action="{% url 'core:Notificação Lida' notific.pk %}">
         <button type="submit" class="btn btn-secondary btn-sm small ms-1"
                 title="Marcar notificação como lida">
             Lida
@@ -68,7 +68,7 @@
 {% elif notific.autor_tipo == 3 %}
 <div class="d-flex justify-content-start">
     {% if notific.content_object.em_posse %}
-    <form action="{% url 'home:Contrato Recebido' notific.pk 'n' %}">
+    <form action="{% url 'core:Contrato Recebido' notific.pk 'n' %}">
         <button type="submit"
                 class="btn btn-outline-primary bg-gray-800 btn-sm small ms-1"
                 title="Marcar contrato como não recebido pelo locatário">
@@ -76,27 +76,27 @@
         </button>
     </form>
     {% else %}
-    <form action="{% url 'home:Contrato Recebido' notific.pk 'n' %}">
+    <form action="{% url 'core:Contrato Recebido' notific.pk 'n' %}">
         <button type="submit" class="btn btn-outline-primary btn-sm small ms-1"
                 title="Marcar contrato como recebido pelo locatário">
             Recebido
         </button>
     </form>
     {% endif %}
-    <form action="{% url 'home:Excluir Contrato' notific.content_object.pk %}">
+    <form action="{% url 'core:Excluir Contrato' notific.content_object.pk %}">
         <button type="submit" class="btn btn-outline-primary btn-sm small ms-1" title="Excluir contrato">
             Excluir
         </button>
     </form>
     {% if notific.lida %}
-    <form action="{% url 'home:Notificação Lida' notific.pk %}">
+    <form action="{% url 'core:Notificação Lida' notific.pk %}">
         <button type="submit" class="btn btn-secondary btn-sm small ms-1"
                 title="Marcar notificação como não lida">
             Não lida
         </button>
     </form>
     {% else %}
-    <form action="{% url 'home:Notificação Lida' notific.pk %}">
+    <form action="{% url 'core:Notificação Lida' notific.pk %}">
         <button type="submit" class="btn btn-secondary btn-sm small ms-1"
                 title="Marcar notificação como lida">
             Lida
@@ -108,14 +108,14 @@
 {% elif notific.autor_tipo == 4 %}
 <div class="d-flex justify-content-start">
     {% if notific.lida %}
-    <form action="{% url 'home:Notificação Lida' notific.pk %}">
+    <form action="{% url 'core:Notificação Lida' notific.pk %}">
         <button type="submit" class="btn btn-secondary btn-sm small ms-1"
                 title="Marcar notificação como não lida">
             Não lida
         </button>
     </form>
     {% else %}
-    <form action="{% url 'home:Notificação Lida' notific.pk %}">
+    <form action="{% url 'core:Notificação Lida' notific.pk %}">
         <button type="submit" class="btn btn-secondary btn-sm small ms-1"
                 title="Marcar notificação como lida">
             Lida
@@ -127,7 +127,7 @@
 {% elif notific.autor_tipo == 5 %}
 <div class="d-flex justify-content-start">
     {% if notific.content_object.temporario %}
-    <form action="{% url 'home:Revisar Locatário' notific.pk %}">
+    <form action="{% url 'core:Revisar Locatário' notific.pk %}">
         <button type="submit" class="btn btn-outline-primary btn-sm small ms-1" title="Revisar dados antes de salvar">
             Revisar 📋
         </button>
@@ -140,20 +140,20 @@
         </button>
     </form>
     {% endif %}
-    <form action="{% url 'home:Excluir Locatario' notific.content_object.pk %}">
+    <form action="{% url 'core:Excluir Locatario' notific.content_object.pk %}">
         <button type="submit" class="btn btn-outline-primary btn-sm small ms-1" title="Excluir Locatário">
             Excluir 🗑️
         </button>
     </form>
     {% if notific.lida %}
-    <form action="{% url 'home:Notificação Lida' notific.pk %}">
+    <form action="{% url 'core:Notificação Lida' notific.pk %}">
         <button type="submit" class="btn btn-secondary btn-sm small ms-1"
                 title="Marcar notificação como não lida">
             Não lida
         </button>
     </form>
     {% else %}
-    <form action="{% url 'home:Notificação Lida' notific.pk %}">
+    <form action="{% url 'core:Notificação Lida' notific.pk %}">
         <button type="submit" class="btn btn-secondary btn-sm small ms-1"
                 title="Marcar notificação como lida">
             Lida
@@ -164,20 +164,20 @@
 
 {% elif notific.autor_tipo == 6 %}
 <div class="d-flex justify-content-start">
-    <form action="{% url 'home:Painel Slots' %}">
+    <form action="{% url 'core:Painel Slots' %}">
         <button type="submit" class="btn btn-outline-primary btn-sm small ms-1" title="Clique para ir para o painel">
             Painel 🎛️
         </button>
     </form>
     {% if notific.lida %}
-    <form action="{% url 'home:Notificação Lida' notific.pk %}">
+    <form action="{% url 'core:Notificação Lida' notific.pk %}">
         <button type="submit" class="btn btn-secondary btn-sm small ms-1"
                 title="Marcar notificação como não lida">
             Não lida
         </button>
     </form>
     {% else %}
-    <form action="{% url 'home:Notificação Lida' notific.pk %}">
+    <form action="{% url 'core:Notificação Lida' notific.pk %}">
         <button type="submit" class="btn btn-secondary btn-sm small ms-1"
                 title="Marcar notificação como lida">
             Lida
@@ -188,20 +188,20 @@
 
 {% elif notific.autor_tipo == 7 %}
 <div class="d-flex justify-content-start">
-    <form action="{% url 'home:Conversa Dev' notific.content_object.pk %}">
+    <form action="{% url 'core:Conversa Dev' notific.content_object.pk %}">
         <button type="submit" class="btn btn-outline-primary btn-sm small ms-1" title="Clique para ver a reposta">
             Ler Resposta
         </button>
     </form>
     {% if notific.lida %}
-    <form action="{% url 'home:Notificação Lida' notific.pk %}">
+    <form action="{% url 'core:Notificação Lida' notific.pk %}">
         <button type="submit" class="btn btn-secondary btn-sm small ms-1"
                 title="Marcar notificação como não lida">
             Não lida
         </button>
     </form>
     {% else %}
-    <form action="{% url 'home:Notificação Lida' notific.pk %}">
+    <form action="{% url 'core:Notificação Lida' notific.pk %}">
         <button type="submit" class="btn btn-secondary btn-sm small ms-1"
                 title="Marcar notificação como lida">
             Lida

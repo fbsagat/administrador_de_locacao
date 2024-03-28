@@ -1,0 +1,86 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block titulo %}
+Editar Imóvel / {{ SITE_NAME }}
+{% endblock %}
+
+{% block head %}
+{% endblock %}
+
+{% block content %}
+
+<div class="flex justify-center items-center">
+
+    <div class="p-3 bg-black bg-opacity-50 mb-2 border border-secondary rounded bg-gradient text-dark">
+        <div class="z-10 h-full md:py-0 text-gray-100 text-center flex items-center flex-col">
+            <p class="fs-3">Editar Imóvel:</p>{{ imovei }}
+            <hr width="75%"/>
+            <br><br>
+            <form action="{% url 'core:Editar Imóvel' imovei.pk %}" method="POST" class="ps-5 pe-5 mask-x_form">
+                {% csrf_token %}
+                <div class="row">
+                    <div class="col">
+                        {{ form.nome|as_crispy_field }}
+                    </div>
+                    <div class="col">
+                        {{ form.grupo|as_crispy_field }}
+                    </div>
+                </div>
+                <div class="flex d-flex justify-content-end">
+                    <a href="{% url 'core:Criar Grupo Imóveis' %}"><small class="float-end link-primary">
+                        Criar/Editar grupos de imóveis</small>
+                        <ion-icon name="create-outline"></ion-icon>
+                    </a></div>
+                <div class="row">
+                    <div class="col">
+                        {{ form.cep|as_crispy_field }}
+                    </div>
+                    <div class="col">
+                        {{ form.bairro|as_crispy_field }}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        {{ form.endereco|as_crispy_field }}
+                    </div>
+                    <div class="col">
+                        {{ form.complemento|as_crispy_field }}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        {{ form.numero|as_crispy_field }}
+                    </div>
+                    <div class="col">
+                        {{ form.cidade|as_crispy_field }}
+                    </div>
+                    <div class="col">
+                        {{ form.estado|as_crispy_field }}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        {{ form.uc_energia|as_crispy_field }}
+                    </div>
+                    <div class="col">
+                        {{ form.uc_agua|as_crispy_field }}
+                    </div>
+                </div>
+
+                <div class="justify-center items-center">
+                    <button class="bg-blue-600 py-1 px-3 text-white md:text-lg rounded-md" type="button"
+                            onClick="history.go(-1)">Voltar
+                    </button>
+                    <button class="bg-blue-600 py-1 px-3 text-white md:text-lg rounded-md" type="submit">Confirmar
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}

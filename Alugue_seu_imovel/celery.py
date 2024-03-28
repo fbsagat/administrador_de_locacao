@@ -18,7 +18,7 @@ app.autodiscover_tasks()
 # 'schedule': crontab(hour=0, minute=1)
 # app.conf.beat_schedule = {
 #     'print-cavalo-every-10-second': {
-#         'task': 'home.tasks.print_cavalo',
+#         'task': 'core.tasks.print_cavalo',
 #         'schedule': timedelta(seconds=10),
 #         'args': ('Argumento 1!', 'Argumento 2!'),
 #     }
@@ -26,11 +26,11 @@ app.autodiscover_tasks()
 
 app.conf.beat_schedule = {
     '1-apagar-validacoes-vencidas': {
-        'task': 'home.tasks.temp_activations_tokens_deletions',
+        'task': 'core.tasks.temp_activations_tokens_deletions',
         'schedule': timedelta(hours=6),
     },
     '2-apagar-usuarios-inativos': {
-        'task': 'home.tasks.temp_inative_users_deletions',
+        'task': 'core.tasks.temp_inative_users_deletions',
         'schedule': timedelta(hours=6),
     },
 }

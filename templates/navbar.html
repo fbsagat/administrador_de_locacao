@@ -51,7 +51,7 @@
 
         <!-- BOTAO VISÃO GERAL -->
         <div class="ps-1">
-            <form action="{% url 'home:Visão Geral' %}">
+            <form action="{% url 'core:Visão Geral' %}">
                 <button type="submit" class="bg-blue-700 text-white p-1 px-3 rounded-md">
                     Visão Geral
                 </button>
@@ -60,7 +60,7 @@
 
         <!-- BOTAO EVENTOS -->
         <div class="ps-1">
-            <form action="{% url 'home:Eventos' %}">
+            <form action="{% url 'core:Eventos' %}">
                 <button type="submit" class="bg-blue-700 text-white p-1 px-3 rounded-md">
                     Eventos 🔍
                 </button>
@@ -76,21 +76,21 @@
             </button>
             <ul class="dropdown-menu">
                 <li>
-                    <form action="{% url 'home:Imóveis Ativos' %}">
+                    <form action="{% url 'core:Imóveis Ativos' %}">
                         <button type="submit" class="dropdown-item">
                             Imóveis Ativos 🏠💡
                         </button>
                     </form>
                 </li>
                 <li>
-                    <form action="{% url 'home:Locatários Ativos' %}">
+                    <form action="{% url 'core:Locatários Ativos' %}">
                         <button type="submit" class="dropdown-item">
                             Locatários Ativos 👨‍💼🏠
                         </button>
                     </form>
                 </li>
                 <li>
-                    <form action="{% url 'home:Contratos Ativos' %}">
+                    <form action="{% url 'core:Contratos Ativos' %}">
                         <button type="submit" class="dropdown-item">
                             Contratos Ativos 📃✒️
                         </button>
@@ -139,21 +139,21 @@
                 </button>
                 <ul class="dropdown-menu">
                     <li>
-                        <form action="{% url 'home:Recibos PDF' %}">
+                        <form action="{% url 'core:Recibos PDF' %}">
                             <button type="submit" class="dropdown-item">
                                 de Recibos 🧾
                             </button>
                         </form>
                     </li>
                     <li>
-                        <form action="{% url 'home:Tabela PDF' %}">
+                        <form action="{% url 'core:Tabela PDF' %}">
                             <button type="submit" class="dropdown-item">
                                 de Tabela 📑
                             </button>
                         </form>
                     </li>
                     <li>
-                        <form action="{% url 'home:Contrato PDF' %}">
+                        <form action="{% url 'core:Contrato PDF' %}">
                             <button type="submit" class="dropdown-item">
                                 de Contrato 📃
                             </button>
@@ -171,42 +171,42 @@
                 </button>
                 <ul class="dropdown-menu">
                     <li>
-                        <form action="{% url 'home:Pagamentos' %}">
+                        <form action="{% url 'core:Pagamentos' %}">
                             <button type="submit" class="dropdown-item">
                                 Pagamentos 💵
                             </button>
                         </form>
                     </li>
                     <li>
-                        <form action="{% url 'home:Locatários' %}">
+                        <form action="{% url 'core:Locatários' %}">
                             <button type="submit" class="dropdown-item">
                                 Locatários 👨‍💼
                             </button>
                         </form>
                     </li>
                     <li>
-                        <form action="{% url 'home:Contratos' %}">
+                        <form action="{% url 'core:Contratos' %}">
                             <button type="submit" class="dropdown-item">
                                 Contratos 📃
                             </button>
                         </form>
                     </li>
                     <li>
-                        <form action="{% url 'home:Imóveis' %}">
+                        <form action="{% url 'core:Imóveis' %}">
                             <button type="submit" class="dropdown-item">
                                 Imóveis 🏠
                             </button>
                         </form>
                     </li>
                     <li>
-                        <form action="{% url 'home:Gastos' %}">
+                        <form action="{% url 'core:Gastos' %}">
                             <button type="submit" class="dropdown-item">
                                 Gastos 💸
                             </button>
                         </form>
                     </li>
                     <li>
-                        <form action="{% url 'home:Anotações' %}">
+                        <form action="{% url 'core:Anotações' %}">
                             <button type="submit" class="dropdown-item">
                                 Notas/Tarefas 🗒️
                             </button>
@@ -245,21 +245,21 @@
             </button>
             <ul class="dropdown-menu">
                 <li>
-                    <form action="{% url 'home:Painel Configs' %}">
+                    <form action="{% url 'core:Painel Configs' %}">
                         <button type="submit" class="dropdown-item">
                             Painel 🎛️
                         </button>
                     </form>
                 </li>
                 <li>
-                    <form action="{% url 'home:Editar Perfil' %}">
+                    <form action="{% url 'core:Editar Perfil' %}">
                         <button type="submit" class="dropdown-item">
                             Editar Perfil 👨‍💼
                         </button>
                     </form>
                 </li>
                 <li>
-                    <form action="{% url 'home:Logout' %}" method="POST">
+                    <form action="{% url 'core:Logout' %}" method="POST">
                         {% csrf_token %}
                         <button type="submit" class="dropdown-item">
                             Sair 🚪
@@ -282,7 +282,7 @@
             </div>
             <div class="">
                 <div class="modal-body">
-                    <form action="{% url 'home:Registrar Pagamento' %}" method="POST" class="mask-x_form ps-5 pe-5">
+                    <form action="{% url 'core:Registrar Pagamento' %}" method="POST" class="mask-x_form ps-5 pe-5">
                         {% csrf_token %}
                         {{ form_pagamento|crispy }}
                         <div class="modal-footer">
@@ -337,7 +337,7 @@
             </div>
             <div class="">
                 <div class="modal-body">
-                    <form class="mask-x_form ps-5 pe-5" action="{% url 'home:Registrar Locatario' %}" method="POST"
+                    <form class="mask-x_form ps-5 pe-5" action="{% url 'core:Registrar Locatario' %}" method="POST"
                           enctype="multipart/form-data">
                         {% csrf_token %}
                         {{ form_locatario.nome|as_crispy_field }}
@@ -400,7 +400,7 @@
             </div>
             <div class="">
                 <div class="modal-body">
-                    <form action="{% url 'home:Registrar Contrato' %}" method="POST" class="mask-x_form ps-5 pe-5">
+                    <form action="{% url 'core:Registrar Contrato' %}" method="POST" class="mask-x_form ps-5 pe-5">
                         {% csrf_token %}
                         <div class="row">
                             <div class="col">
@@ -453,7 +453,7 @@
             <div class="modal-body">
 
                 {% if request.user.tem_slot_disponivel %}
-                <form action="{% url 'home:Registrar Imóvel' %}" method="POST" class="ps-5 pe-5 mask-x_form">
+                <form action="{% url 'core:Registrar Imóvel' %}" method="POST" class="ps-5 pe-5 mask-x_form">
                     {% csrf_token %}
                     <div class="row">
                         <div class="col">
@@ -464,7 +464,7 @@
                         </div>
                     </div>
                     <div class="d-flex justify-content-end">
-                        <a href="{% url 'home:Criar Grupo Imóveis' %}"><small class="float-end link-primary">
+                        <a href="{% url 'core:Criar Grupo Imóveis' %}"><small class="float-end link-primary">
                             Criar/Editar grupos de imóveis</small>
                             <ion-icon name="create-outline"></ion-icon>
                         </a></div>
@@ -521,7 +521,7 @@
                         <h1 class="fs-2">Adicione um slot para cadastrar outro imóvel</h1>
                     </div>
                     <div class="row">
-                        <form action="{% url 'home:Painel Slots' %}" class="mt-3">
+                        <form action="{% url 'core:Painel Slots' %}" class="mt-3">
                             <button class="fs-3" type="submit">
                                 <a class="link-primary">Painel 🎛️</a>
                             </button>
@@ -545,7 +545,7 @@
             </div>
             <div class="">
                 <div class="modal-body">
-                    <form action="{% url 'home:Registrar Gasto' %}" method="POST" enctype="multipart/form-data"
+                    <form action="{% url 'core:Registrar Gasto' %}" method="POST" enctype="multipart/form-data"
                           class="mask-x_form ps-5 pe-5">
                         {% csrf_token %}
                         {{ form_gasto.do_imovel|as_crispy_field }}
@@ -582,7 +582,7 @@
             <div class="modal-header">
                 <h1 class="modal-title fs-5" id="MODAL8_ANOTAÇÃO">Registrar Anotação</h1>
             </div>
-            <form action="{% url 'home:Registrar Anotação' %}" method="POST" class="ps-5 pe-5">
+            <form action="{% url 'core:Registrar Anotação' %}" method="POST" class="ps-5 pe-5">
                 {% csrf_token %}
                 <div class="modal-body">
                     <div class="row">

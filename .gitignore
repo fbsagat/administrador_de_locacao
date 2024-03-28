@@ -139,6 +139,6 @@ GitHub.sublime-settings
 /db_admlco32_.sqlite3
 /db_admlco32_ (backup).sqlite3
 
-/home/fixtures/dados_do_predio.json
-/home/fixtures/locatarios_cpfs.json
-/home/fixtures/recibos_entregues.json
+/core/fixtures/dados_do_predio.json
+/core/fixtures/locatarios_cpfs.json
+/core/fixtures/recibos_entregues.json

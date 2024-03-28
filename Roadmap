@@ -134,23 +134,22 @@ Ok. Criar sistema de envio de emails, confirmador, (enviar email com link de exc
 Ok. Criar sistema que Apaga instancias de TempCodigo e TempLink vencidas periodicamente(Ok, usei o celery) e/ou
         quando o usuário tenta utilizá-los fora da validade(ok, fora da validade).
 Ok. Apagar diariamente usuários que não concluíram o cadastro.
+Ok. Mudar o nome da aplicação principal de home para core.
 
 _-''-__-''-__-''-__-''-__-''-__-''-__-''-__-''-__-''-__-''-__-''-__-''-__-''-__-''-__-''-__-''-__-''-__-''-_
 
 
-Celery periódicos:
-...
-
 Fazer:
-Aplicar timezone no datetime datetime.now(timezone.utc)
+Aplicar timezone no datetime datetime.now(timezone.utc) / estudar sobre o assunto e ver se aplica pro site.
 
 Arrumar o box de mensagens que estica na caixa na pagina de login(erra o login pra ver)
 
-Mudar o nome da aplicação principal de home para core.
-
-Criar um sistema que utiliza o mesmo link de auto-registro gerado por sessão, para não puxar muito do servidor.
+Criar um sistema que utiliza o mesmo link de auto-registro gerado por sessão, para não puxar muito do servidor,
+        e habilitar ou desabilitar o auto registro de locatários(ou gerar novo link).
 
 Criar a notificação que é gerada quando se rescinde um contrato com pendencias, descrevendo as pendencias.
+
+Colocar o gerador de fictícios no worker.
 
 Implementar filtros/buscas na comunidade no editor de modelos.
 Implementar filtros/buscas nas paginas do botão histórico(alguns deles ou todos?).
@@ -160,8 +159,6 @@ Implementar o esqueci minha senha(utilizar o sistema do django, se existe).
 Depois de criar a função backup e load_backup (criptografados e únicos para cada usuário), atualizar o gerador
         de fixtures da planilha para gerar diretamente o de cadastro do usuário ao invés de baixar
         diretamente/evita problemas)
-
-Configs: Habilitar ou desabilitar o auto registro de locatários(ou gerar novo link).
 
 Criar um sistema que notifica o desenvolvedor, no painel adm, em algum campo, quando algo é disparado no código,
 por exemplo, quando uma função de redundância é usada, para maior controle e fiscalização de funcionalidade.
@@ -210,7 +207,7 @@ import os
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'Alugue_seu_imovel.settings')
 import django
 django.setup()
-from home.models import Parcela
+from core.models import Parcela
 
 2. Passos para criação de uma tarefa para uma model:
     1.1. A classe da model autora recebe este parâmetro(se tiver):

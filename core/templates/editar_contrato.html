@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block titulo %}
+Editar Contrato / {{ SITE_NAME }}
+{% endblock %}
+
+{% block head %}
+{% endblock %}
+
+{% block content %}
+
+<div class="flex justify-center items-center">
+
+    <div class="p-3 bg-black bg-opacity-50 mb-2 border border-secondary rounded bg-gradient text-dark">
+        <div class="z-10 h-full md:py-0 text-gray-100 text-center flex items-center flex-col">
+            <p class="fs-3">Editar Contrato:</p>{{ contrato }}
+            <hr width="75%" />
+            <br>
+            <p class="fs-6 fw-light fst-italic lh-1 text-wrap" style="width: 40rem;">*Recomendamos que seja editado
+                apenas o contrato que ainda não esteja com firma reconhecida. Se você deseja estender o
+                período de locação após reconhecido, faça um novo contrato ou renove este com um termo
+                de aditivo de renovação contratual.</p>
+            <br>
+            <form action="{% url 'core:Editar Contrato' contrato.pk %}" method="POST" class="ps-5 pe-5 mask-x_form">
+                {% csrf_token %}
+                <div class="row">
+                    <div class="col">
+                        {{ form.do_locatario|as_crispy_field }}
+                    </div>
+                    <div class="col">
+                        {{ form.do_imovel|as_crispy_field }}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        {{ form.data_entrada|as_crispy_field }}
+                    </div>
+                    <div class="col">
+                        {{ form.duracao|as_crispy_field }}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        {{ form.valor_mensal|as_crispy_field }}
+                    </div>
+                    <div class="col">
+                        {{ form.dia_vencimento|as_crispy_field }}
+                    </div>
+                </div>
+                <div class="justify-center items-center">
+                    <button class="bg-blue-600 py-1 px-3 text-white md:text-lg rounded-md" type="button"
+                            onClick="history.go(-1)">Voltar
+                    </button>
+                    <button class="bg-blue-600 py-1 px-3 text-white md:text-lg rounded-md" type="submit">Confirmar
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

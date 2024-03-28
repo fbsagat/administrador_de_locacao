@@ -1,0 +1,119 @@
+{% extends 'base.html' %}
+
+{% load crispy_forms_tags %}
+{% load static %}
+
+{% block titulo %}
+Locatários / {{ SITE_NAME }}
+{% endblock %}
+
+{% block head %}
+{% endblock %}
+
+{% block content %}
+
+{% if locatarios %}
+
+<div class="container-fluid pt-1 text-center text-justify">
+    <table class="table mx-1 my-1 align-middle table-sm table-hover table-bordered border-secondary table-striped table-dark">
+        <thead>
+        <tr>
+            <th scope="col" style="cursor:default;"></th>
+            <th scope="col" style="cursor:default;">Nome</th>
+            <th scope="col" style="cursor:default;">RG</th>
+            <th scope="col" style="cursor:default;">CPF</th>
+            <th scope="col" style="cursor:default;">Telefone 1</th>
+            <th scope="col" style="cursor:default;">Telefone 2</th>
+            <th scope="col" style="cursor:default;">Nacionalidade</th>
+            <th scope="col" style="cursor:default;">Estado Civil</th>
+            <th scope="col" style="cursor:default;" title="Mais informações">Mais</th>
+            <th scope="col" style="cursor:default;" title="Documentos">Docs</th>
+            <th scope="col" style="cursor:default;">Editar</th>
+            <th scope="col" style="cursor:default;">Excluir</th>
+        </tr>
+        </thead>
+        <tbody class="table-group-divider">
+
+        {% for locatario in locatarios %}
+        <tr>
+            <th scope="col" style="cursor:default;">{{ page_obj.start_index|add:forloop.counter0 }}</th>
+            <th scope="col" style="cursor:default;" title="{{ locatario.nome }}">{{ locatario.primeiro_ultimo_nome }}
+            </th>
+            {% if locatario.RG %}
+            <th scope="col" style="cursor:default;">{{ locatario.RG }}</th>
+            {% else %}
+            <th scope="col" style="cursor:default;">---</th>
+            {% endif %}
+            <th scope="col" style="cursor:default;">{{ locatario.f_cpf }}</th>
+            <th scope="col" style="cursor:default;">{{ locatario.f_tel1 }}</th>
+            {% if locatario.f_tel2 %}
+            <th scope="col" style="cursor:default;">{{ locatario.f_tel2 }}</th>
+            {% else %}
+            <th scope="col" style="cursor:default;">---</th>
+            {% endif %}
+            <th scope="col" style="cursor:default;">{{ locatario.nacionalidade }}</th>
+            <th scope="col" style="cursor:default;">{{ locatario.get_estadocivil_display }}</th>
+            <th scope="col" style="cursor:pointer;" data-bs-toggle="modal"
+                data-bs-target="#Modal{{ locatario.pk }}">📋
+            </th>
+            {% if locatario.docs %}
+            <th scope="col">
+                <a href="{{ locatario.docs.url }}" class="link-primary" target="_blank" title="Clique para visualizar">🗂</a>
+            </th>
+            {% else %}
+            <th scope="col" style="cursor:default;" title="Sem registro">✖️</th>
+            {% endif %}
+
+            <th scope="col"><a class="link-primary" href="{% url 'core:Editar Locatario' locatario.pk %}"
+                               title="Editar">✒️</a></th>
+            <th scope="col"><a class="link-danger" href="{% url 'core:Excluir Locatario' locatario.pk %}"
+                               title="Excluir">❌</a></th>
+
+            {% endfor %}
+        </tr>
+        </tbody>
+    </table>
+
+
+</div>
+
+{% for locatario in locatarios %}
+<div class="modal fade modal-lg" id="Modal{{ locatario.pk }}" tabindex="-1" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable">
+        <div class="modal-content bg-dark border border-white text-white">
+            <div class="modal-header">
+
+                <h1 class="modal-title fs-5" id="exampleModalLabel">{{ page_obj.start_index|add:forloop.counter0 }}.
+                    {{ locatario.nome }}: </h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Nome completo: {{ locatario.nome }}
+                <br>
+                Ocupação: {{ locatario.ocupacao }}
+                {% if locatario.endereco_completo %}
+                <br>
+                Endereço: {{ locatario.endereco_completo }}
+                {% endif %}
+                {% if locatario.email %}
+                <br>
+                Email: {{ locatario.email }}
+                {% endif %}
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endfor %}
+
+{% else %}
+<div class="container-fluid text-center text-justify">
+    {% include 'nenhum_registrado.html' %}
+</div>
+{% endif %}
+
+{% endblock %}

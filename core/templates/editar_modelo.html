@@ -1,0 +1,98 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block titulo %}
+Editar Modelo / {{ SITE_NAME }}
+{% endblock %}
+
+{% block head %}
+<script type="text/javascript" src='{% static "ckeditor/ckeditor-init.js" %}'></script>
+<script type="text/javascript" src='{% static "ckeditor/ckeditor/ckeditor.js" %}'></script>
+{% endblock %}
+
+{% block content %}
+
+<div class="container my-1 text-center text-justify justify-center">
+
+    <div class="container-auto my-1 border bg-dark bg-opacity-50 rounded flex justify-content-evenly items-center">
+        <a class="py-2 px-3" href="{% url 'core:Criar Modelo' %}">
+            <button class="btn btn-sm btn-outline-primary py-2 px-3 text-white rounded-md form-control-sm">
+                Criar novo modelo
+            </button>
+        </a>
+        <a class="py-2 px-3" href="{% url 'core:Modelos' %}">
+            <button class="btn btn-sm btn-outline-primary py-2 px-3 text-white rounded-md form-control-sm">
+                Meus modelos
+            </button>
+        </a>
+        <a class="py-2 px-3" href="{% url 'core:Modelos Comunidade' %}">
+            <button class="btn btn-sm btn-outline-primary py-2 px-3 text-white rounded-md form-control-sm">
+                Modelos da comunidade
+            </button>
+        </a>
+        <a class="py-2 px-3" href="{% url 'core:Contrato PDF' %}">
+            <button class="btn btn-sm btn-outline-primary py-2 px-3 text-white rounded-md form-control-sm">
+                Sair do editor
+            </button>
+        </a>
+    </div>
+
+    <div class="container bg-black bg-opacity-50 border border-secondary rounded bg-gradient text-dark">
+        <div class="container flex justify-center items-center">
+
+            <div class="row flex items-center">
+
+                <div class="col">
+
+                    <div accesskey="q" title="Tecla de atalho: Alt + Q" style="cursor:pointer;"
+                         class="position-relative badge bg-secondary text-wrap" data-bs-toggle="offcanvas"
+                         data-bs-target="#offcanvasVariaveis" aria-controls="offcanvasScrolling">
+                        <ion-icon size="large" name="alert-outline"></ion-icon>
+                        <small>Variáveis e</small>
+                        <small>Condições</small>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="text-gray-100 text-center flex items-center flex-col">
+                        <p class="fs-6">Editar Modelo: {{ object }}</p>
+                        <form action="{% url 'core:Editar Modelo' object.pk %}" method="POST">
+                            {% csrf_token %}
+                            {{ form.titulo|as_crispy_field }}
+                            {{ form.descricao|as_crispy_field }}
+                            {{ form.corpo|as_crispy_field }}
+                            <hr>
+                            <div class="text-center flex items-center flex-col">
+                                <h1 class="fs-6">Deseja compartilhar este modelo na aba comunidade?</h1>
+                                <small>Certifique-se de que não haja nenhuma informação sensível
+                                    neste modelo de contrato antes de publicá-lo na comunidade. Clicando no botão
+                                    abaixo você CONCORDA em compartilhá-lo com outros usuários.</small>
+                                {{ form.comunidade|as_crispy_field }}
+                                <button accesskey="s" title="Tecla de atalho: Alt + Q"
+                                        class="mb-2 btn btn-sm bg-blue-600 text-white rounded-md" type="submit">
+                                    Salvar Modelo
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="col">
+
+                    <div accesskey="q" title="Tecla de atalho: Alt + Q" style="cursor:pointer;"
+                         class="position-relative badge bg-secondary text-wrap" data-bs-toggle="offcanvas"
+                         data-bs-target="#offcanvasVariaveis" aria-controls="offcanvasScrolling">
+                        <ion-icon size="large" name="alert-outline"></ion-icon>
+                        <small>Variáveis e</small>
+                        <small>Condições</small>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% include 'offcanvas_variaveis.html' %}
+{% endblock %}

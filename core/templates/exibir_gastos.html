@@ -1,0 +1,158 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block titulo %}
+Gastos / {{ SITE_NAME }}
+{% endblock %}
+
+{% block head %}
+{% endblock %}
+
+{% block content %}
+
+{% if gastos %}
+<div class="container-fluid pt-1 text-center text-justify">
+
+    <div class="row g-1">
+
+        <div class="col-6 text-center text-justify">
+            <table class="table mx-1 my-1 align-middle table-sm table-hover table-bordered border-secondary table-striped table-dark">
+                <thead>
+                <tr>
+                    <th scope="col" style="cursor:default;"></th>
+                    <th scope="col" style="cursor:default;">Imovel</th>
+                    <th scope="col" style="cursor:default;">Valor</th>
+                    <th scope="col" style="cursor:default;">Data do Envento</th>
+                    <th scope="col" style="cursor:default;">Observações</th>
+                    <th scope="col" style="cursor:default;">Docs</th>
+                    <th scope="col" style="cursor:default;">Editar</th>
+                    <th scope="col" style="cursor:default;">Excluir</th>
+                </tr>
+                </thead>
+
+                <tbody class="table-group-divider">
+                {% for gasto in gastos %}
+                {% if forloop.counter|divisibleby:2 %}
+                {% else %}
+                <tr>
+                    <th scope="col" style="cursor:default;">{{ page_obj.start_index|add:forloop.counter0 }}</th>
+                    {% if gasto.do_imovel %}
+                    <th scope="col" style="cursor:default;">{{ gasto.do_imovel }}</th>
+                    {% else %}
+                    <th scope="col" style="cursor:default;">Geral</th>
+                    {% endif %}
+                    <th scope="col" style="cursor:default;">{{ gasto.valor_format }}</th>
+                    <th scope="col" style="cursor:default;">{{ gasto.data|date:"d/m/Y" }}</th>
+                    {% if gasto.observacoes %}
+                    <th scope="col" style="cursor:pointer;" title="Clique para ver mais" data-bs-toggle="modal"
+                        data-bs-target="#Modal{{ gasto.pk }}">
+                        {{ gasto.observacoes|truncatechars:50 }}
+                    </th>
+                    {% else %}
+                    <th scope="col" style="cursor:default;">---</th>
+                    {% endif %}
+                    {% if gasto.comprovante %}
+                    <th scope="col">
+                        <a href="{{ gasto.comprovante.url }}" class="link-primary" target="_blank"
+                           title="Clique para visualizar">🗂</a></th>
+                    {% else %}
+                    <th scope="col" style="cursor:default;" title="Sem registro">✖️</th>
+                    {% endif %}
+                    <th scope="col"><a class="link-primary" href="{% url 'core:Editar Gasto' gasto.pk %}"
+                                       title="Editar">✒️</a></th>
+                    <th scope="col"><a class="link-danger" href="{% url 'core:Excluir Gasto' gasto.pk %}"
+                                       title="Excluir">❌</a></th>
+                </tr>
+                {% endif %}
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+        <div class="col-6 text-center text-justify">
+            <table class="table mx-1 my-1 align-middle table-sm table-hover table-bordered border-secondary table-striped table-dark">
+                <thead>
+                <tr>
+                    <th scope="col" style="cursor:default;"></th>
+                    <th scope="col" style="cursor:default;">Imovel</th>
+                    <th scope="col" style="cursor:default;">Valor</th>
+                    <th scope="col" style="cursor:default;">Data do Envento</th>
+                    <th scope="col" style="cursor:default;">Observações</th>
+                    <th scope="col" style="cursor:default;">Docs</th>
+                    <th scope="col" style="cursor:default;">Editar</th>
+                    <th scope="col" style="cursor:default;">Excluir</th>
+                </tr>
+                </thead>
+
+                <tbody class="table-group-divider">
+                {% for gasto in gastos %}
+                {% if forloop.counter|divisibleby:2 %}
+                <tr>
+                    <th scope="col" style="cursor:default;">{{ page_obj.start_index|add:forloop.counter0 }}</th>
+                    {% if gasto.do_imovel %}
+                    <th scope="col" style="cursor:default;">{{ gasto.do_imovel }}</th>
+                    {% else %}
+                    <th scope="col" style="cursor:default;">Geral</th>
+                    {% endif %}
+                    <th scope="col" style="cursor:default;">{{ gasto.valor_format }}</th>
+                    <th scope="col" style="cursor:default;">{{ gasto.data|date:"d/m/Y" }}</th>
+                    {% if gasto.observacoes %}
+                    <th scope="col" style="cursor:pointer;" title="Clique para ver mais" data-bs-toggle="modal"
+                        data-bs-target="#Modal{{ gasto.pk }}">
+                        {{ gasto.observacoes|truncatechars:50 }}
+                    </th>
+                    {% else %}
+                    <th scope="col" style="cursor:default;">---</th>
+                    {% endif %}
+                    {% if gasto.comprovante %}
+                    <th scope="col">
+                        <a href="{{ gasto.comprovante.url }}" class="link-primary" target="_blank"
+                           title="Clique para visualizar">🗂</a></th>
+                    {% else %}
+                    <th scope="col" style="cursor:default;" title="Sem registro">✖️</th>
+                    {% endif %}
+                    <th scope="col"><a class="link-primary" href="{% url 'core:Editar Gasto' gasto.pk %}"
+                                       title="Editar">✒️</a></th>
+                    <th scope="col"><a class="link-danger" href="{% url 'core:Excluir Gasto' gasto.pk %}"
+                                       title="Excluir">❌</a></th>
+                </tr>
+                {% endif %}
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>
+
+<!-- Modal -->
+{% for gasto in gastos %}
+<div class="modal fade modal-lg" id="Modal{{ gasto.pk }}" tabindex="-1" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable">
+        <div class="modal-content bg-dark border border-white text-white">
+            <div class="modal-header">
+
+                <h1 class="modal-title fs-5" id="exampleModalLabel">{{ page_obj.start_index|add:forloop.counter0 }}.
+                    {{ gasto.do_imovel }}</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                {{ gasto.observacoes }}
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+            </div>
+        </div>
+    </div>
+</div>
+{% endfor %}
+
+{% else %}
+<div class="container-fluid text-center text-justify">
+    {% include 'nenhum_registrado.html' %}
+</div>
+{% endif %}
+
+{% endblock %}

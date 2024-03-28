@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block titulo %}
+Imóveis / {{ SITE_NAME }}
+{% endblock %}
+
+{% block head %}
+{% endblock %}
+
+{% block content %}
+
+{% if imoveis %}
+
+<div class="container-fluid pt-1 text-center text-justify">
+    <table class="table mx-1 my-1 align-middle table-sm table-hover table-bordered border-secondary table-striped table-dark">
+        <thead>
+        <tr>
+            <th scope="col" style="cursor:default;"></th>
+            <th scope="col" style="cursor:default;">Rótulo</th>
+            <th scope="col" style="cursor:default;">Grupo</th>
+            <th scope="col" style="cursor:default;">Endereço</th>
+            <th scope="col" style="cursor:default;" title="Unidade Consumidora da instalação elétrica do imóvel">UC
+                Energia
+            </th>
+            <th scope="col" style="cursor:default;" title="Unidade Consumidora da instalação hidráulica do imóvel">UC
+                Saneamento
+            </th>
+            <th scope="col" style="cursor:default;">Editar</th>
+            <th scope="col" style="cursor:default;">Excluir</th>
+        </tr>
+        </thead>
+        <tbody class="table-group-divider">
+
+        {% for imovel in imoveis %}
+        <tr>
+            <th scope="col" style="cursor:default;">{{ page_obj.start_index|add:forloop.counter0 }}</th>
+            <th scope="col" style="cursor:default;">{{ imovel.nome }}</th>
+            {% if imovel.grupo %}
+            <th scope="col" style="cursor:default;">{{ imovel.grupo }}</th>
+            {% else %}
+            <th scope="col" style="cursor:default;">---</th>
+            {% endif %}
+            <th scope="col" style="cursor:default;">
+                {{ imovel.endereco_completo }}
+            </th>
+            {% if imovel.uc_energia %}
+            <th scope="col" style="cursor:default;">{{ imovel.uc_energia }}</th>
+            {% else %}
+            <th scope="col" style="cursor:default;">---</th>
+            {% endif %}
+            {% if imovel.uc_agua %}
+            <th scope="col" style="cursor:default;">{{ imovel.uc_agua }}</th>
+            {% else %}
+            <th scope="col" style="cursor:default;">---</th>
+            {% endif %}
+            <th scope="col"><a href="{% url 'core:Editar Imóvel' imovel.pk %}" class="link-primary"
+                               title="Editar">✒️</a>
+            </th>
+            <th scope="col"><a href="{% url 'core:Excluir Imóvel' imovel.pk %}" class="link-danger"
+                               title="Excluir">❌</a>
+            </th>
+
+            {% endfor %}
+        </tr>
+        </tbody>
+    </table>
+
+</div>
+
+{% else %}
+<div class="container-fluid text-center text-justify">
+    {% include 'nenhum_registrado.html' %}
+</div>
+{% endif %}
+
+{% endblock %}

@@ -16,14 +16,14 @@
             <br>
 
             {% if not phone_methods %}
-            <a href="{% url 'home:Painel Configs'%}"
+            <a href="{% url 'core:Painel Configs'%}"
                class="float-right btn btn-link">Voltar para configurações</a>
             {% else %}
             <p>{% blocktrans trimmed %}However, it might happen that you don't have access to
                 your primary token device. To enable account recovery, add a phone
                 number.{% endblocktrans %}</p>
 
-            <a href="{% url 'home:Painel Configs'%}"
+            <a href="{% url 'core:Painel Configs'%}"
                class="float-right btn btn-link">Voltar para configurações</a>
             <p><a href="{% url 'two_factor:phone_create' %}"
                   class="btn btn-success">{% trans "Add Phone Number" %}</a></p>

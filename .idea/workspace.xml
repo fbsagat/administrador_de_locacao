@@ -4,37 +4,82 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="821aae0c-af66-4bd0-9bcb-4113d2209df1" name="Changes" comment="Melhorias e correções de bugs.&#10;&#10;Implementação do celery, +celery beats, +celery flower.">
-      <change afterPath="$PROJECT_DIR$/Alugue_seu_imovel/celery.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/home/tasks.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/administrador_de_locacao.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/administrador_de_locacao.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/Fábio.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dictionaries/Fábio.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations/Criar_SuperUser.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/runConfigurations/Criar_SuperUser.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations/Criar_dados_iniciais.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/runConfigurations/Criar_dados_iniciais.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations/Importar_dados_do_predio.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/runConfigurations/Importar_dados_do_predio.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations/Makemigrations.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/runConfigurations/Makemigrations.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations/Migrate.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/runConfigurations/Migrate.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations/Runserver.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/runConfigurations/Runserver.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+    <list default="true" id="821aae0c-af66-4bd0-9bcb-4113d2209df1" name="Changes" comment="Render test.">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Alugue_seu_imovel/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/Alugue_seu_imovel/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Alugue_seu_imovel/celery.py" beforeDir="false" afterPath="$PROJECT_DIR$/Alugue_seu_imovel/celery.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Alugue_seu_imovel/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/Alugue_seu_imovel/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Alugue_seu_imovel/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/Alugue_seu_imovel/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Roadmap" beforeDir="false" afterPath="$PROJECT_DIR$/Roadmap" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/financeiro/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/financeiro/migrations/0001_initial.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/financeiro/migrations/0002_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/financeiro/migrations/0002_initial.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/funcoes_proprias.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/funcoes_proprias.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/migrations/0001_initial.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/financeiro/migrations/0002_initial.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/financeiro/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/financeiro/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/financeiro/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/financeiro/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/apps.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/apps.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/fakes_test.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/fakes_test.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/fixtures/dados_iniciais.json" beforeDir="false" afterPath="$PROJECT_DIR$/core/fixtures/dados_iniciais.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/funcoes_proprias.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/funcoes_proprias.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/management/commands/createsuperuser_if_none_exists.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/management/commands/createsuperuser_if_none_exists.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/migrations/0001_initial.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/home/migrations/0002_alter_contratomodelo_comunidade_and_more.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/signals.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/signals.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/migrations/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/migrations/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/new_context.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/new_context.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/signals.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/signals.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/tasks.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/tasks.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/templates/confirmacao_email.html" beforeDir="false" afterPath="$PROJECT_DIR$/core/templates/confirmacao_email.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/templates/criar_conta.html" beforeDir="false" afterPath="$PROJECT_DIR$/core/templates/criar_conta.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/templates/criar_grupos.html" beforeDir="false" afterPath="$PROJECT_DIR$/core/templates/criar_grupos.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/templates/criar_modelo.html" beforeDir="false" afterPath="$PROJECT_DIR$/core/templates/criar_modelo.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/templates/dev_chat.html" beforeDir="false" afterPath="$PROJECT_DIR$/core/templates/dev_chat.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/templates/editar_anotacao.html" beforeDir="false" afterPath="$PROJECT_DIR$/core/templates/editar_anotacao.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/templates/editar_contrato.html" beforeDir="false" afterPath="$PROJECT_DIR$/core/templates/editar_contrato.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/templates/editar_gasto.html" beforeDir="false" afterPath="$PROJECT_DIR$/core/templates/editar_gasto.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/templates/editar_grupo.html" beforeDir="false" afterPath="$PROJECT_DIR$/core/templates/editar_grupo.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/templates/editar_imovel.html" beforeDir="false" afterPath="$PROJECT_DIR$/core/templates/editar_imovel.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/templates/editar_locatario.html" beforeDir="false" afterPath="$PROJECT_DIR$/core/templates/editar_locatario.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/templates/editar_modelo.html" beforeDir="false" afterPath="$PROJECT_DIR$/core/templates/editar_modelo.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/templates/editar_perfil.html" beforeDir="false" afterPath="$PROJECT_DIR$/core/templates/editar_perfil.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/templates/excluir_conta.html" beforeDir="false" afterPath="$PROJECT_DIR$/core/templates/excluir_conta.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/templates/excluir_item.html" beforeDir="false" afterPath="$PROJECT_DIR$/core/templates/excluir_item.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/templates/exibir_anotacao.html" beforeDir="false" afterPath="$PROJECT_DIR$/core/templates/exibir_anotacao.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/templates/exibir_ativos.html" beforeDir="false" afterPath="$PROJECT_DIR$/core/templates/exibir_ativos.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/templates/exibir_contratos.html" beforeDir="false" afterPath="$PROJECT_DIR$/core/templates/exibir_contratos.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/templates/exibir_eventos.html" beforeDir="false" afterPath="$PROJECT_DIR$/core/templates/exibir_eventos.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/templates/exibir_gastos.html" beforeDir="false" afterPath="$PROJECT_DIR$/core/templates/exibir_gastos.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/templates/exibir_imoveis.html" beforeDir="false" afterPath="$PROJECT_DIR$/core/templates/exibir_imoveis.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/templates/exibir_locatarios.html" beforeDir="false" afterPath="$PROJECT_DIR$/core/templates/exibir_locatarios.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/templates/exibir_modelos.html" beforeDir="false" afterPath="$PROJECT_DIR$/core/templates/exibir_modelos.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/templates/exibir_pagamentos.html" beforeDir="false" afterPath="$PROJECT_DIR$/core/templates/exibir_pagamentos.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/templates/exibir_visao_geral.html" beforeDir="false" afterPath="$PROJECT_DIR$/core/templates/exibir_visao_geral.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/templates/forum_sugestoes.html" beforeDir="false" afterPath="$PROJECT_DIR$/core/templates/forum_sugestoes.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/templates/gerar_contrato.html" beforeDir="false" afterPath="$PROJECT_DIR$/core/templates/gerar_contrato.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/templates/gerar_recibos.html" beforeDir="false" afterPath="$PROJECT_DIR$/core/templates/gerar_recibos.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/templates/gerar_tabela.html" beforeDir="false" afterPath="$PROJECT_DIR$/core/templates/gerar_tabela.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/core/templates/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/templates/locatario_auto_registro.html" beforeDir="false" afterPath="$PROJECT_DIR$/core/templates/locatario_auto_registro.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/templates/modelos_da_comunidade.html" beforeDir="false" afterPath="$PROJECT_DIR$/core/templates/modelos_da_comunidade.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/templates/painel_configs.html" beforeDir="false" afterPath="$PROJECT_DIR$/core/templates/painel_configs.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/templates/painel_slots.html" beforeDir="false" afterPath="$PROJECT_DIR$/core/templates/painel_slots.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/templates/revisar_locatario.html" beforeDir="false" afterPath="$PROJECT_DIR$/core/templates/revisar_locatario.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/templates/visualizar_contratos_modelos.html" beforeDir="false" afterPath="$PROJECT_DIR$/core/templates/visualizar_contratos_modelos.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/tests.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/tests/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/tests/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/tests/test_models.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/tests/test_models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/tests/test_views.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/tests/test_views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/botoes_painel.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/botoes_painel.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/footer.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/footer.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/navbar.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/navbar.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/notific_cards.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/notific_cards.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/two_factor/core/backup_tokens.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/two_factor/core/backup_tokens.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/two_factor/core/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/two_factor/core/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/two_factor/core/setup_complete.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/two_factor/core/setup_complete.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/two_factor/profile/disable.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/two_factor/profile/disable.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -101,36 +146,36 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "ASKED_MARK_IGNORED_FILES_AS_EXCLUDED": "true",
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "DefaultHtmlFileTemplate": "HTML File",
-    "Python.Celery beat.executor": "Run",
-    "Python.Celery flower.executor": "Run",
-    "Python.Celery worker.executor": "Run",
-    "Python.Celery.executor": "Run",
-    "Python.Criar SuperUser.executor": "Run",
-    "Python.Criar dados iniciais.executor": "Run",
-    "Python.Execução inicial (Celery).executor": "Run",
-    "Python.Execução inicial Django (s/predio).executor": "Run",
-    "Python.Execução inicial add/predio.executor": "Run",
-    "Python.Execução inicial s/predio.executor": "Run",
-    "Python.Execução inicial.executor": "Run",
-    "Python.Importar dados do predio.executor": "Run",
-    "Python.Makemigrations.executor": "Run",
-    "Python.Migrate.executor": "Run",
-    "Python.Runserver.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "C:/Users/Fabio/PycharmProjects/Alugue_seu_imovel/home",
-    "run.code.analysis.last.selected.profile": "pProject Default",
-    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;ASKED_MARK_IGNORED_FILES_AS_EXCLUDED&quot;: &quot;true&quot;,
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;Python.Celery beat.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Celery flower.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Celery worker.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Celery.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Criar SuperUser.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Criar dados iniciais.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Execução inicial (Celery).executor&quot;: &quot;Run&quot;,
+    &quot;Python.Execução inicial Django (s/predio).executor&quot;: &quot;Run&quot;,
+    &quot;Python.Execução inicial add/predio.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Execução inicial s/predio.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Execução inicial.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Importar dados do predio.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Makemigrations.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Migrate.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Runserver.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Fabio/PycharmProjects/Alugue_seu_imovel/home&quot;,
+    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;
   }
-}]]></component>
+}</component>
   <component name="Push.Settings">
     <force-push-targets>
       <force-push-target remote-path="origin" branch="main" />
@@ -160,7 +205,7 @@
       <recent name="C:\Users\Fabio\PycharmProjects\Alugue_seu_imovel\home\templates" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.Celery worker">
+  <component name="RunManager" selected="Python.Criar dados iniciais">
     <list>
       <item itemvalue="Python.Celery worker" />
       <item itemvalue="Python.Celery beat" />

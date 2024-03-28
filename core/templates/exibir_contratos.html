@@ -1,0 +1,114 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block titulo %}
+Contratos / {{ SITE_NAME }}
+{% endblock %}
+
+{% block head %}
+{% endblock %}
+
+{% block content %}
+
+{% if contratos %}
+<div class="container-fluid pt-1 text-center text-justify">
+
+    <table class="table mx-1 my-1 align-middle table-sm table-hover table-bordered border-secondary table-striped table-dark">
+        <thead>
+        <tr>
+            <th scope="col" style="cursor:default;"></th>
+            <th scope="col" style="cursor:default;">Cód.</th>
+            <th scope="col" style="cursor:default;">Locatário</th>
+            <th scope="col" style="cursor:default;">Imóvel</th>
+            <th scope="col" style="cursor:default;">Data de Entrada</th>
+            <th scope="col" style="cursor:default;">Data de Saída</th>
+            <th scope="col" style="cursor:default;">Valor do Aluguel</th>
+            <th scope="col" style="cursor:default;" title="Dia de vencimento">Venc. d</th>
+            <th scope="col" style="cursor:default;" title="Minha Via em mãos Ativado/Desativado">M. via</th>
+            <th scope="col" style="cursor:default;" title="Contrato Ativado/Rescindido">Ativado</th>
+            <th scope="col" style="cursor:default;" title="Editar Contrato">Editar</th>
+            <th scope="col" style="cursor:default;" title="Excluir Contrato">Excluir</th>
+        </tr>
+        </thead>
+        <tbody class="table-group-divider">
+
+        {% for contrato in contratos %}
+        <tr>
+            <th scope="col" style="cursor:default;">{{ page_obj.start_index|add:forloop.counter0 }}</th>
+            <th scope="col" style="cursor:default;">{{ contrato.codigo }}</th>
+            <th scope="col" style="cursor:default;" title="{{ contrato.do_locatario.nome }}">
+                {{ contrato.do_locatario.primeiro_ultimo_nome }}
+            </th>
+            <th scope="col" style="cursor:default;" title="{{ contrato.do_imovel.endereco_completo }}">
+                {{ contrato.do_imovel|truncatechars:106 }}
+            </th>
+            <th scope="col" style="cursor:default;">{{ contrato.data_entrada|date:"d/m/Y" }}</th>
+            <th scope="col" style="cursor:default;">{{ contrato.data_saida|date:"d/m/Y" }}</th>
+            <th scope="col" style="cursor:default;">{{ contrato.valor_format }}</th>
+            <th scope="col" style="cursor:default;">{{ contrato.dia_vencimento }}</th>
+
+            {% if contrato.em_posse %}
+            <th scope="col">
+                <form action="{% url 'core:Contrato Recebido' contrato.pk 'c' %}">
+                    <button type="submit" class="link-primary" title="Em mãos, clique para designar não recebido">
+                        ✅️
+                    </button>
+                </form>
+            </th>
+            {% else %}
+            <th scope="col">
+                <form action="{% url 'core:Contrato Recebido' contrato.pk 'c' %}">
+                    <button type="submit" class="link-primary" title="Não recebido, clique para designar recebido">
+                        ✖️
+                    </button>
+                </form>
+            </th>
+            {% endif %}
+
+            {% if contrato.vencido %}
+            <th scope="col" style="cursor:default;"><a class="link-primary" title="Contrato Vencido">️✖️</a></th>
+            {% else %}
+            {% if contrato.rescindido %}
+            <th scope="col">
+                <form action="{% url 'core:Rescindir Contrato' contrato.pk %}">
+                    <button type="submit" class="link-primary" title="Rescindido, clique para ativar">
+                        ✖️
+                    </button>
+                </form>
+            </th>
+            {% else %}
+            <th scope="col">
+                <form action="{% url 'core:Rescindir Contrato' contrato.pk %}">
+                    <button type="submit" class="link-primary" title="Ativado, clique para rescindir">
+                        ✅
+                    </button>
+                </form>
+            </th>
+            {% endif %}
+            {% endif %}
+
+            {% if contrato.em_posse %}
+            <th scope="col" style="cursor:default;" title="Edição bloqueada">🔒</th>
+            <th scope="col" style="cursor:default;" title="Exclusão bloqueada">🔒</th>
+            {% else %}
+            <th scope="col"><a class="link-primary" href="{% url 'core:Editar Contrato' contrato.pk %}"
+                               title="Editar">✒️</a></th>
+            <th scope="col"><a class="link-danger" href="{% url 'core:Excluir Contrato' contrato.pk %}"
+                               title="Excluir">❌</a></th>
+            {% endif %}
+
+            {% endfor %}
+        </tr>
+        </tbody>
+    </table>
+
+</div>
+
+{% else %}
+<div class="container-fluid text-center text-justify">
+    {% include 'nenhum_registrado.html' %}
+</div>
+{% endif %}
+
+{% endblock %}

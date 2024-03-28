@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block titulo %}
+Criação de Grupos / {{ SITE_NAME }}
+{% endblock %}
+
+{% block head %}
+{% endblock %}
+
+{% block content %}
+
+<div class="flex justify-center items-center">
+
+    <div class="p-3 bg-black bg-opacity-50 mb-2 border border-secondary rounded bg-gradient text-dark">
+        <div class="z-10 h-full md:py-0 text-gray-100 text-center flex items-center flex-col">
+            <form method="post">
+                {% csrf_token %}
+                <fieldset class="form-group">
+                    <legend class="border-bottom mb-4">Criar grupos para os imóveis:
+                        <br><strong>{{ object }}</strong>
+                    </legend>
+                    {% if grupos %}
+                    <table class="table align-middle table-sm table-hover table-bordered border-secondary table-striped table-dark">
+                        <thead>
+                        <tr>
+                            <th scope="col">Nº</th>
+                            <th scope="col">Nome</th>
+                            <th scope="col">Tipo</th>
+                            <th scope="col">Editar</th>
+                            <th scope="col">Apagar</th>
+                        </tr>
+                        </thead>
+                        <tbody class="table-group-divider">
+                        <td colspan="13">
+                        </td>
+                        {% for grupo in grupos %}
+                        <tr>
+                            <th scope="col">{{ forloop.counter }}</th>
+                            <th scope="col">{{ grupo.nome }}</th>
+                            <th scope="col">{{ grupo.get_tipo_display }}</th>
+                            <th scope="col"><a class="link-primary"
+                                               href="{% url 'core:Editar Grupo Imóveis' grupo.pk %}">Editar</a>
+                            </th>
+                            <th scope="col"><a class="link-danger"
+                                               href="{% url 'core:Excluir Grupo Imóveis' grupo.pk %}">Excluir</a>
+                            </th>
+                        </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                    {% else %}
+                    {% endif %}
+                    <br>
+                    {% if form %}
+                    Criar novo grupo*
+                    {{ form|crispy }}
+                </fieldset>
+                <div class="justify-center items-center">
+                    <button class="bg-blue-600 py-1 my-2 px-3 text-white md:text-lg rounded-md" type="submit">
+                        Criar
+                    </button>
+                    {% endif %}
+                </div>
+            </form>
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}

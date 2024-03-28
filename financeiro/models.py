@@ -81,7 +81,7 @@ class PacoteConfig(models.Model):
 
 
 class PagamentoInvoice(models.Model):
-    do_usuario = models.ForeignKey('home.Usuario', null=False, blank=False, on_delete=models.DO_NOTHING)
+    do_usuario = models.ForeignKey('core.Usuario', null=False, blank=False, on_delete=models.DO_NOTHING)
     do_config = models.ForeignKey('PacoteConfig', null=True, on_delete=models.DO_NOTHING)
     do_pacote = models.IntegerField(null=True, blank=True)
     btc = models.BooleanField(default=False, help_text='Marque se o pagamento foi em bitcoin')

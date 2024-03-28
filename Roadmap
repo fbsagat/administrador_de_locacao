@@ -142,6 +142,8 @@ Celery periódicos:
 ...
 
 Fazer:
+Login pelas redes sociais apenas quando configuradas
+Fazer login com o email também
 Aplicar timezone no datetime datetime.now(timezone.utc)
 
 Arrumar o box de mensagens que estica na caixa na pagina de login(erra o login pra ver)
@@ -243,3 +245,6 @@ from home.models import Parcela
 
     Celery beat(scheduler):
         celery -A Alugue_seu_imovel beat -l INFO --scheduler django_celery_beat.schedulers:DatabaseScheduler
+
+    Ngrok(host próprio de testes):
+        ngrok http 8000

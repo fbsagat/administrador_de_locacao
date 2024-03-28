@@ -6,8 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="821aae0c-af66-4bd0-9bcb-4113d2209df1" name="Changes" comment="Render test.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/migrations/0002_alter_contratomodelo_comunidade_and_more.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/tasks.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/tasks.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Alugue_seu_imovel/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/Alugue_seu_imovel/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Roadmap" beforeDir="false" afterPath="$PROJECT_DIR$/Roadmap" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,36 +74,36 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "ASKED_MARK_IGNORED_FILES_AS_EXCLUDED": "true",
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "DefaultHtmlFileTemplate": "HTML File",
-    "Python.Celery beat.executor": "Run",
-    "Python.Celery flower.executor": "Run",
-    "Python.Celery worker.executor": "Run",
-    "Python.Celery.executor": "Run",
-    "Python.Criar SuperUser.executor": "Run",
-    "Python.Criar dados iniciais.executor": "Run",
-    "Python.Execução inicial (Celery).executor": "Run",
-    "Python.Execução inicial Django (s/predio).executor": "Run",
-    "Python.Execução inicial add/predio.executor": "Run",
-    "Python.Execução inicial s/predio.executor": "Run",
-    "Python.Execução inicial.executor": "Run",
-    "Python.Importar dados do predio.executor": "Run",
-    "Python.Makemigrations.executor": "Run",
-    "Python.Migrate.executor": "Run",
-    "Python.Runserver.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "render-test",
-    "last_opened_file_path": "C:/Users/Fabio/PycharmProjects/Alugue_seu_imovel/home",
-    "run.code.analysis.last.selected.profile": "pProject Default",
-    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;ASKED_MARK_IGNORED_FILES_AS_EXCLUDED&quot;: &quot;true&quot;,
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;Python.Celery beat.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Celery flower.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Celery worker.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Celery.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Criar SuperUser.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Criar dados iniciais.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Execução inicial (Celery).executor&quot;: &quot;Run&quot;,
+    &quot;Python.Execução inicial Django (s/predio).executor&quot;: &quot;Run&quot;,
+    &quot;Python.Execução inicial add/predio.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Execução inicial s/predio.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Execução inicial.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Importar dados do predio.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Makemigrations.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Migrate.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Runserver.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;render-test&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Fabio/PycharmProjects/Alugue_seu_imovel/home&quot;,
+    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;
   }
-}]]></component>
+}</component>
   <component name="Push.Settings">
     <force-push-targets>
       <force-push-target remote-path="origin" branch="main" />
@@ -133,7 +133,7 @@
       <recent name="C:\Users\Fabio\PycharmProjects\Alugue_seu_imovel\home\templates" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.Runserver">
+  <component name="RunManager" selected="Python.Celery flower">
     <list>
       <item itemvalue="Python.Celery worker" />
       <item itemvalue="Python.Celery beat" />
@@ -508,7 +508,7 @@
       <option name="project" value="LOCAL" />
       <updated>1687463941621</updated>
     </task>
-    <option name="localTasksCounter" value="215" />
+    <option name="localTasksCounter" value="217" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -541,7 +541,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Correções de bugs e melhorias.&#10;&#10;PacoteConfigAdmin: corrigidas algumas validações." />
     <MESSAGE value="Correções de bugs e melhorias.&#10;&#10;ContratoModelo: remover o arquivo visualizar e o campo visualizar da model quando ela passa a ser apenas modelo de configs já que este arquivo e campo ficam desnecessários." />
     <MESSAGE value="Correções de bugs e melhorias.&#10;&#10;Melhorias nos botões do painel.&#10;Criada a view histórico de compras." />
     <MESSAGE value="Correções de bugs e melhorias.&#10;&#10;Encriptação de CPFs no banco de dados (de todos os modelos que usam cpf)." />
@@ -566,6 +565,7 @@
     <MESSAGE value="Melhorias e correções de bugs.&#10;&#10;Implementação do celery, +celery beats, +celery flower." />
     <MESSAGE value="Melhorias e correções de bugs.&#10;&#10;Implementação do celery, +celery beats, +celery flower.&#10;Versão mais estável. OK." />
     <MESSAGE value="Render test." />
-    <option name="LAST_COMMIT_MESSAGE" value="Render test." />
+    <MESSAGE value="squash! Render test." />
+    <option name="LAST_COMMIT_MESSAGE" value="squash! Render test." />
   </component>
 </project>

@@ -2,13 +2,16 @@ import dj_database_url
 from pathlib import Path
 from django.contrib.messages import constants as messages
 import os
+from dotenv import load_dotenv
+
+load_dotenv()
 
 # CONFIGURAÇÕES CUSTOMIZADAS DO SITE \/ -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 
 SITE_NAME = 'Alugue Seu imóvel'
 # Coloque aqui a url onde o site ficará hospedado
 SITE_URL = 'https://alugue-seu-imovel.onrender.com'
-USAR_DB = 2
+USAR_DB = 1
 # /\ 1. SQlite3 Local | 2. PostGreSQL + railway | 3. PostGreSQL + Render.com
 
 # tempo para apagar o form inválido da navbar das sessions (segundos)
@@ -54,7 +57,7 @@ SECRET_KEY = os.environ.get('DJ_SECRET_KEY', INSECURE_KEY)
 DEBUG = True
 
 if DEBUG:
-    CSRF_TRUSTED_ORIGINS = []
+    CSRF_TRUSTED_ORIGINS = ['http://ngrok.io', 'https://3d81-5-62-49-115.ngrok-free.app', ]
 else:
     CSRF_TRUSTED_ORIGINS = [SITE_URL, ]
 

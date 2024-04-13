@@ -1,4 +1,4 @@
-import string, secrets, os, uuid
+import string, secrets, os
 from datetime import datetime, timedelta
 from math import floor
 from hashlib import sha256
@@ -18,9 +18,8 @@ from django.contrib.auth.models import AbstractUser
 from django_resized import ResizedImageField
 from core.funcoes_proprias import valor_format, tratar_imagem, cpf_format, cel_format, cep_format
 from ckeditor.fields import RichTextField
-from core.funcoes_proprias import modelo_variaveis, modelo_condicoes, tamanho_max_mb, gerar_uuid_6, gerar_uuid_8, \
-    gerar_uuid_10, \
-    gerar_uuid_20, _decrypt, _crypt
+from core.funcoes_proprias import modelo_variaveis, modelo_condicoes, tamanho_max_mb, gerar_uuid_6, gerar_uuid_10, \
+    gerar_uuid_20, _decrypt, gerar_uuid_64, gerar_uuid_8
 
 apenas_numeros = RegexValidator(regex=r'^[0-9]*$', message='Digite apenas números.')
 
@@ -60,6 +59,7 @@ class Usuario(AbstractUser):
     dados_pagamento2 = models.CharField(null=True, blank=True, max_length=90,
                                         verbose_name='Informações de pagamentos 2')
     uuid = models.CharField(null=False, editable=False, max_length=10, unique=True, default=gerar_uuid_10)
+    locat_auto_registro_url = models.URLField(max_length=64, default=gerar_uuid_64)
     tickets = models.IntegerField(default=10)
 
     # Configurações de slots
@@ -110,8 +110,7 @@ class Usuario(AbstractUser):
     notif_parc_venc_2 = models.DateTimeField(default=datetime.now, null=True)
 
     def locat_auto_registro_link(self):
-        code = _crypt(self.uuid)
-        return reverse('core:Locatario Auto-Registro', args=[str(code)[2:-1]])
+        return reverse('core:Locatario Auto-Registro', args=[self.locat_auto_registro_url])
 
     def recibos_code(self):
         site_code = os.environ.get('recibos')

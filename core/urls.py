@@ -15,7 +15,7 @@ from core.views import visao_geral, Locatarios, Imoveis, Contratos, registrar_pa
     adicionar_ticket, adicionar_ticket_todos, painel_configs, ModelosComunidade, confirmar_email, \
     arquivos_contratos_modelos, visualizar_modelo, copiar_modelo, notificacao_lida, conversa_com_o_dev, \
     configurar_notificacoes, configurar_app, baixar_planilha, botao_teste, activate_account_link, \
-    exclusao_de_conta
+    exclusao_de_conta, trocar_link_auto_registro
 
 from financeiro.views import painel_loja
 from Alugue_seu_imovel import settings
@@ -48,6 +48,7 @@ urlpatterns = [
 
     # LOCATÁRIO AUTO-REGISTRO -------------------
     path('locatario_auto_registro/<str:code>/', locat_auto_registro, name='Locatario Auto-Registro'),
+    path('', trocar_link_auto_registro, name='Auto-Registro Trocar Link'),
     path('revisar_registro_de_locatario/<int:pk>/', RevisarLocat.as_view(), name='Revisar Locatário'),
 
     # CONTRATO -------------------

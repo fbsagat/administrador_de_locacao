@@ -203,6 +203,26 @@ def gerar_uuid_6(caracteres=6, dividir=False):
         raise Exception("A quantidade de caracteres deve ser par")
 
 
+# 013: -----------------------------------------------
+
+
+def gerar_uuid_64(caracteres=64, dividir=False):
+    metade = int(caracteres / 2)
+    if caracteres % 2 == 0:
+        codigo_ = ''.join(
+            secrets.choice(string.ascii_uppercase + string.ascii_lowercase + string.digits) for _ in
+            range(caracteres))
+        if dividir:
+            return f'{codigo_[:metade]}-{codigo_[metade:]}'
+        else:
+            return codigo_
+    else:
+        raise Exception("A quantidade de caracteres deve ser par")
+
+
+# 014: -----------------------------------------------
+
+
 modelo_variaveis = {
         0: ['[!variavel: semana_extenso_hoje]', 'Dia da semana hoje escrito por extenso'],
         64: ['[!variavel: data_extenso_hoje]', 'Dia, mês e ano de hoje escritos por extenso'],

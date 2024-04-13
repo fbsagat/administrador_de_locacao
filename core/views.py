@@ -32,7 +32,7 @@ from .tasks import enviar_email_conf_de_email, enviar_email_exclusao_de_conta, g
     gerar_contrato_pdf
 
 from core.funcoes_proprias import valor_format, valor_por_extenso, _crypt, _decrypt, cpf_format, gerar_uuid_20, \
-    modelo_variaveis, modelo_condicoes
+    modelo_variaveis, modelo_condicoes, gerar_uuid_64
 from core.fakes_test import locatarios_ficticios, imoveis_ficticios, imov_grupo_fict, contratos_ficticios, \
     pagamentos_ficticios, gastos_ficticios, anotacoes_ficticias, usuarios_ficticios, sugestoes_ficticias, \
     modelos_contratos_ficticios
@@ -442,35 +442,36 @@ def registrar_locat(request):
 
 
 def locat_auto_registro(request, code):
-    try:
-        code_enc = bytes(code, 'UTF-8')
-        user_uuid = _decrypt(code_enc)
-    except:
-        raise Http404
-    else:
-        user = get_object_or_404(Usuario, uuid=user_uuid)
-        context = {}
-        if request.method == 'POST':
-            form = FormLocatario(request.POST, request.FILES, usuario=request.user.pk)
+    user = get_object_or_404(Usuario, locat_auto_registro_url=code)
+    context = {}
+    if request.method == 'POST':
+        form = FormLocatario(request.POST, request.FILES, usuario=request.user.pk)
 
-            if form.is_valid():
-                locatario = form.save(commit=False)
-                locatario.do_locador = user
-                locatario.temporario = True
-                cpf = _crypt(message=form.cleaned_data['cpf'])
-                locatario.cript_cpf = cpf
-                locatario.save()
-                messages.success(request, "Dados enviados com sucesso! Aguarde o contato do locador.")
-                return redirect(reverse('core:Locatario Auto-Registro', args=[code]))
-            else:
-                messages.error(request, f"Formulário inválido.")
-                context['form'] = form
-                return render(request, 'locatario_auto_registro.html', context)
+        if form.is_valid():
+            locatario = form.save(commit=False)
+            locatario.do_locador = user
+            locatario.temporario = True
+            cpf = _crypt(message=form.cleaned_data['cpf'])
+            locatario.cript_cpf = cpf
+            locatario.save()
+            messages.success(request, "Dados enviados com sucesso! Aguarde o contato do locador.")
+            return redirect(reverse('core:Locatario Auto-Registro', args=[code]))
         else:
-            form = FormLocatario(usuario=request.user.pk)
+            messages.error(request, f"Formulário inválido.")
+            context['form'] = form
+            return render(request, 'locatario_auto_registro.html', context)
+    else:
+        form = FormLocatario(usuario=request.user.pk)
 
-        context['form'] = form
-        return render(request, 'locatario_auto_registro.html', context)
+    context['form'] = form
+    return render(request, 'locatario_auto_registro.html', context)
+
+
+def trocar_link_auto_registro(request):
+    user = request.user
+    user.locat_auto_registro_url = gerar_uuid_64()
+    user.save(update_fields=['locat_auto_registro_url', ])
+    return redirect(request.META['HTTP_REFERER'])
 
 
 class RevisarLocat(LoginRequiredMixin, UpdateView):

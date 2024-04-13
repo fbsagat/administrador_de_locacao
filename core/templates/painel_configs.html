@@ -169,6 +169,34 @@ Painel / {{ SITE_NAME }}
                 </div>
                 <!-- Segurança da conta FIM -->
 
+                <!-- Trocar de link de auto registro -->
+                <div class="card bg-black text-white bg-opacity-50 border-secondary">
+                    <div class="card-header fs-5">
+                        Link de auto-registro do locatário:
+                    </div>
+
+                    <div class="card-body">
+                        <div class="col">
+                            <div class="row">
+                                <div class="col-10">
+                                    <input class="form-control form-control-sm input-group" type="text"
+                                           value="{{ request.get_host }}{{ request.user.locat_auto_registro_link }}"
+                                           aria-label="readonly input example" readonly>
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                        <form action="{% url 'core:Auto-Registro Trocar Link' %}" class="mr-2">
+                            <button type="submit" class="btn btn-outline-primary">
+                                Gerar novo
+                            </button>
+                            <small class="text-muted ml-2">Clique para gerar um novo link.</small>
+                        </form>
+                    </div>
+
+                </div>
+                <!-- Trocar de link de auto registro FIM -->
+
                 <!-- Backup e restauração de dados -->
                 <div class="card bg-black text-white bg-opacity-50 border-secondary">
                     <div class="card-header fs-5">

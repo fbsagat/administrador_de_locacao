@@ -482,10 +482,11 @@ def pagamento_post_delete(sender, instance, **kwards):
 # Gerenciadores de login e logout \/  ---------------------------------------
 @receiver(user_logged_in)
 def usuario_fez_login(sender, user, **kwargs):
+    caminho_fixtures = "C:/Users/Fabio/PycharmProjects/Alugue_seu_imovel/core/fixtures"
     if user.is_superuser and user.username == 'fbaugusto':
-        caminho = fr"C:\Users\Fabio\PycharmProjects\alugueseuimovel2024\home\fixtures\recibos_entregues.json"
-        caminho_2 = fr"C:\Users\Fabio\PycharmProjects\alugueseuimovel2024\home\fixtures\dados_do_predio.json"
-        caminho_3 = fr"C:\Users\Fabio\PycharmProjects\alugueseuimovel2024\home\fixtures\locatarios_cpfs.json"
+        caminho = fr"{caminho_fixtures}\recibos_entregues.json"
+        caminho_2 = fr"{caminho_fixtures}\dados_do_predio.json"
+        caminho_3 = fr"{caminho_fixtures}\locatarios_cpfs.json"
 
         # Marcar os recibos entregues
         if os.path.isfile(caminho):

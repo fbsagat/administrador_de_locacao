@@ -135,17 +135,23 @@ Ok. Criar sistema que Apaga instancias de TempCodigo e TempLink vencidas periodi
         quando o usuário tenta utilizá-los fora da validade(ok, fora da validade).
 Ok. Apagar diariamente usuários que não concluíram o cadastro.
 Ok. Mudar o nome da aplicação principal de home para core.
+Ok. Criar um sistema que utiliza o mesmo link de auto-registro gerado por sessão, para não puxar muito do servidor,
+        e habilitar ou desabilitar o auto registro de locatários(ou gerar novo link).
 
 _-''-__-''-__-''-__-''-__-''-__-''-__-''-__-''-__-''-__-''-__-''-__-''-__-''-__-''-__-''-__-''-__-''-__-''-_
 
 
 Fazer:
+
+Opção de colocar uma anotação no contrato através de um código. (no meu caso seria pra colocar as instruções após
+        recebimento do contrato)
+
+Implementar limite de tentativas nas confirmações de conta(criação e exclusão) através do código enviado para o
+        email do usuario. (Peter indicou Safesrc hehe)
+
 Aplicar timezone no datetime datetime.now(timezone.utc) / estudar sobre o assunto e ver se aplica pro site.
 
 Arrumar o box de mensagens que estica na caixa na pagina de login(erra o login pra ver)
-
-Criar um sistema que utiliza o mesmo link de auto-registro gerado por sessão, para não puxar muito do servidor,
-        e habilitar ou desabilitar o auto registro de locatários(ou gerar novo link).
 
 Criar a notificação que é gerada quando se rescinde um contrato com pendencias, descrevendo as pendencias.
 
@@ -202,14 +208,17 @@ Arrumar os parâmetros das models que estão em letras maiúsculas, corrigir tam
 _-''-__-''-__-''-__-''-__-''-__-''-__-''-__-''-__-''-__-''-__-''-__-''-__-''-__-''-__-''-__-''-__-''-__-''-_
 
 Regras do programador:
-1. Comando para o console:
+1. Ordem de execução: Inicial: Celery worker, Execução inicial, Celery Beat, Celery Flower
+        Rotineira: Celery worker, Runserver, Celery Beat, Celery Flower
+
+2. Comando para o console:
 import os
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'Alugue_seu_imovel.settings')
 import django
 django.setup()
 from core.models import Parcela
 
-2. Passos para criação de uma tarefa para uma model:
+3. Passos para criação de uma tarefa para uma model:
     1.1. A classe da model autora recebe este parâmetro(se tiver):
     da_notificacao = models.OneToOneField('Tarefa', null=True, blank=True, on_delete=models.SET_NULL)
 
@@ -226,10 +235,11 @@ from core.models import Parcela
         da tarefa especifica desta model autora.
     1.6. Criar o signal pre delete que vai apagar a tarefa no momento em que a instancia referenciada por ela for
         apagada.
-3. Comandos host, render.com:
+
+4. Comandos host, render.com:
     python manage.py migrate && python manage.py collectstatic --noinput && gunicorn alugueseuimovel.wsgi:application
 
-4. Comandos Celery e agregados:
+5. Comandos Celery e agregados:
     Celery(start worker):
         1(pool solo). celery -A Alugue_seu_imovel.celery worker --pool=solo -l info
         2(com gevent). celery -A Alugue_seu_imovel.celery worker -l info -P gevent -c 10

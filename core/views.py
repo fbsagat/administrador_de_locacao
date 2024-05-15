@@ -468,9 +468,10 @@ def locat_auto_registro(request, code):
 
 
 def trocar_link_auto_registro(request):
-    user = request.user
-    user.locat_auto_registro_url = gerar_uuid_64()
-    user.save(update_fields=['locat_auto_registro_url', ])
+    if request.user.is_anonymous is False:
+        user = request.user
+        user.locat_auto_registro_url = gerar_uuid_64()
+        user.save(update_fields=['locat_auto_registro_url', ])
     return redirect(request.META['HTTP_REFERER'])
 
 

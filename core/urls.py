@@ -48,7 +48,7 @@ urlpatterns = [
 
     # LOCATÁRIO AUTO-REGISTRO -------------------
     path('locatario_auto_registro/<str:code>/', locat_auto_registro, name='Locatario Auto-Registro'),
-    path('', trocar_link_auto_registro, name='Auto-Registro Trocar Link'),
+    path('trocar_link_auto_registro', trocar_link_auto_registro, name='Auto-Registro Trocar Link'),
     path('revisar_registro_de_locatario/<int:pk>/', RevisarLocat.as_view(), name='Revisar Locatário'),
 
     # CONTRATO -------------------
